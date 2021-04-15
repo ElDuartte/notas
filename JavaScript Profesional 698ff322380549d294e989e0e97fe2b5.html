@@ -1,0 +1,961 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>JavaScript Profesional</title><style>
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.highlight-default {
+}
+.highlight-gray {
+	color: rgb(155,154,151);
+}
+.highlight-brown {
+	color: rgb(100,71,58);
+}
+.highlight-orange {
+	color: rgb(217,115,13);
+}
+.highlight-yellow {
+	color: rgb(223,171,1);
+}
+.highlight-teal {
+	color: rgb(15,123,108);
+}
+.highlight-blue {
+	color: rgb(11,110,153);
+}
+.highlight-purple {
+	color: rgb(105,64,165);
+}
+.highlight-pink {
+	color: rgb(173,26,114);
+}
+.highlight-red {
+	color: rgb(224,62,62);
+}
+.highlight-gray_background {
+	background: rgb(235,236,237);
+}
+.highlight-brown_background {
+	background: rgb(233,229,227);
+}
+.highlight-orange_background {
+	background: rgb(250,235,221);
+}
+.highlight-yellow_background {
+	background: rgb(251,243,219);
+}
+.highlight-teal_background {
+	background: rgb(221,237,234);
+}
+.highlight-blue_background {
+	background: rgb(221,235,241);
+}
+.highlight-purple_background {
+	background: rgb(234,228,242);
+}
+.highlight-pink_background {
+	background: rgb(244,223,235);
+}
+.highlight-red_background {
+	background: rgb(251,228,228);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(55, 53, 47, 0.6);
+	fill: rgba(55, 53, 47, 0.6);
+}
+.block-color-brown {
+	color: rgb(100,71,58);
+	fill: rgb(100,71,58);
+}
+.block-color-orange {
+	color: rgb(217,115,13);
+	fill: rgb(217,115,13);
+}
+.block-color-yellow {
+	color: rgb(223,171,1);
+	fill: rgb(223,171,1);
+}
+.block-color-teal {
+	color: rgb(15,123,108);
+	fill: rgb(15,123,108);
+}
+.block-color-blue {
+	color: rgb(11,110,153);
+	fill: rgb(11,110,153);
+}
+.block-color-purple {
+	color: rgb(105,64,165);
+	fill: rgb(105,64,165);
+}
+.block-color-pink {
+	color: rgb(173,26,114);
+	fill: rgb(173,26,114);
+}
+.block-color-red {
+	color: rgb(224,62,62);
+	fill: rgb(224,62,62);
+}
+.block-color-gray_background {
+	background: rgb(235,236,237);
+}
+.block-color-brown_background {
+	background: rgb(233,229,227);
+}
+.block-color-orange_background {
+	background: rgb(250,235,221);
+}
+.block-color-yellow_background {
+	background: rgb(251,243,219);
+}
+.block-color-teal_background {
+	background: rgb(221,237,234);
+}
+.block-color-blue_background {
+	background: rgb(221,235,241);
+}
+.block-color-purple_background {
+	background: rgb(234,228,242);
+}
+.block-color-pink_background {
+	background: rgb(244,223,235);
+}
+.block-color-red_background {
+	background: rgb(251,228,228);
+}
+.select-value-color-default { background-color: rgba(206,205,202,0.5); }
+.select-value-color-gray { background-color: rgba(155,154,151, 0.4); }
+.select-value-color-brown { background-color: rgba(140,46,0,0.2); }
+.select-value-color-orange { background-color: rgba(245,93,0,0.2); }
+.select-value-color-yellow { background-color: rgba(233,168,0,0.2); }
+.select-value-color-green { background-color: rgba(0,135,107,0.2); }
+.select-value-color-blue { background-color: rgba(0,120,223,0.2); }
+.select-value-color-purple { background-color: rgba(103,36,222,0.2); }
+.select-value-color-pink { background-color: rgba(221,0,129,0.2); }
+.select-value-color-red { background-color: rgba(255,0,26,0.2); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="1abfd7a1-c334-458b-9465-55ba76da3bce" class="page sans"><header><h1 class="page-title">JavaScript Profesional</h1></header><div class="page-body"><figure id="ca0fe6cd-4cb4-4ab9-bd82-d77136552dce"><div class="source"><a></a></div></figure><figure id="07fc019d-7c73-4f5c-a708-d5905bd0b9e7"><div class="source"><a></a></div></figure><p id="56082013-bffc-477b-b733-c51e1f43eaff" class="">¿Qué significa ser un profesional de JS?</p><p id="87ab3b8c-bd42-43db-a5ec-96fed6ec6503" class="">El camino para llegar a ser profesional es largo y duro, no es fácil. Todos necesitamos que nos guíen para saber qué hacer y qué no. Este camino es conocido como la ruta de pasar de Junior a Senior.</p><p id="bd098b78-7dad-43ee-8688-8388d6436c50" class="">
+</p><p id="3f871f3c-ca3b-4321-be96-c77f922c2ba2" class="">¿Qué forma a un profesional?</p><p id="3780a95c-0b63-4f55-ba54-de8f568a5c8b" class="">1 Conocimiento del lenguaje</p><p id="0b713867-f8b5-4e06-ae06-b8d588fe4f03" class="">2 Conocimiento de entornos de programación</p><p id="f1b9db89-17e9-4357-b71d-f0fb7a2f7c8f" class="">3 Mejores prácticas</p><p id="17b89370-dc26-45d6-8c8b-72e9f0a4cce3" class="">4 Versado de codigo</p><p id="6dfbdfcf-9ccd-4cd0-b894-76301103854a" class="">5 Herramientas</p><p id="1882130c-dbb9-4612-bc4c-28dee774ea13" class="">6 Ética / profesionalismo</p><p id="19cc573f-84eb-4c0f-bcbd-57e93e6fbc1f" class="">7 Experiencia</p><h2 id="015861a9-d371-4aba-a818-d2e3b4a0df35" class="">El lenguaje: JavaScript</h2><p id="2dbfc194-de55-4f7b-b58d-9c6c834f81ea" class="">‌</p><p id="f0ffaef9-706f-4e57-bd87-e85b940012be" class="">Debemos tener muy claro cuales son los <strong>fundamentos</strong> de JavaScript antes de comenzar con esto. Existen <em>features</em> muy raros y hay que estudiarlos. Tenemos que saber cómo <strong>funcionan las cosas</strong> en JavaScript.</p><h2 id="7bec8d1b-36c2-4fa3-a845-ca771254fe2c" class="">No fundamentos</h2><p id="6d8760d4-a879-4783-9f1e-d625dfa143c1" class="">‌</p><p id="cea5863c-c1c6-40b9-a124-c71a0a973e48" class="">Los <strong>no fundamentos</strong>&quot; representan las siguientes características del lenguaje:</p><p id="0d06a8aa-6505-4402-b772-ddeb63d298a7" class="">‌</p><ol id="befb2097-7c2d-47f0-b337-8b9819219aa6" class="numbered-list" start="1"><li><strong>Promesas (nivel pro)</strong>.</li></ol><ol id="cfa43c28-f3a1-4ffe-b537-3ff1f1e5b19f" class="numbered-list" start="2"><li><strong>Getters, setters</strong>: son formas de obtener valor de una variable sin tener que poner <code>this.name</code>.</li></ol><ol id="cabda992-2cd4-4a19-a18c-621431c92ced" class="numbered-list" start="3"><li><strong>Proxies</strong>: es un <em>feature</em> muy raro, pero que más adelante veremos a profundidad. Sirve para interceptar a una función antes de que se ejecute.</li></ol><ol id="dde79a9b-4748-492b-850b-e85fdeec55a4" class="numbered-list" start="4"><li><strong>Generadores</strong>: esto es raro, pero vamos a ver que sí es eficiente.</li></ol><h2 id="0acc5698-e742-42df-a8da-5cd030817971" class="">¿Cómo funciona?</h2><p id="b99d2dc4-c9ed-4b9d-b754-49dbdebf6ff2" class="">‌</p><p id="f846ac2a-9c73-48da-95ed-bbebd243c601" class="">Este lenguaje corre sobre un motor. JavaScript no contiene clases como otros lenguajes de programación, esto es algo que vuela mucho la cabeza, es muy difícil de entender. Otro <em>feature</em> muy <em>cool</em> que vamos a aprender es <code>event loop</code>, es lo que permite que pueda correr muchos procesos a la vez.</p><h2 id="86189c05-d70d-4d05-a1ff-8308eb029dce" class="">Entornos de programación</h2><p id="12989c3d-ea07-480e-94f7-7e0e1c5344e9" class="">‌</p><p id="40c840ae-6e49-4fc0-942d-a26c118bd1a5" class="">Cuando estamos desarrollando lo hacemos para la <strong>WEB</strong>, para un celular, para seguidores. Existen diferentes entornos que nos ofrecen <strong>APIS</strong>, tenemos que conocer todo esto. V</p><p id="ccd5e616-079a-4dc6-a4c7-5311a292cd50" class="">‌</p><h2 id="2b9d9ff5-9e18-452c-b2c5-1d586cf3a505" class="">Versado en código</h2><p id="16fff5af-6405-422b-a9c8-ad4204cd8e7d" class="">‌</p><p id="e7a32463-2680-49ea-8a64-6e61b573ce6f" class="">Esto quiere decir que tenemos que leer mucho código, un lugar hermoso para ponernos a leer código es <strong>GitHub</strong>. Debemos leer mucho y hacerlo de forma muy constante.</p><h2 id="93750c1e-fcfa-4a46-b55d-ce54e367451e" class="">Mejores prácticas</h2><p id="de9a90f7-b243-4155-b937-abb884f6b7f6" class="">‌</p><p id="ced26ade-c0e8-4308-830a-10187c1dc612" class="">No vamos a reinventar la rueda, hay muchas personas que ya han solucionado los problemas más comunes, tenemos que usar estas soluciones, a estas soluciones se les llama: <strong>patrones de diseño</strong>.</p><h2 id="046c100d-59cf-4e63-b584-8ab2933dc52f" class="">Ética</h2><p id="d85c8a15-d097-4cbe-afd2-9160147358e9" class="">‌</p><p id="aa8e2547-d061-4a2c-a56a-e6ff268218ce" class="">Esta es la parte más importante de ser un profesional. Un buen profesional cumple con los siguientes valores:</p><p id="987de63b-44cd-498a-8a4b-a3191bd72388" class="">‌</p><ol id="5975d7e3-edce-4bba-8935-1f2282d02683" class="numbered-list" start="1"><li><strong>Es responsable</strong>.</li></ol><ol id="6ef06a25-e44f-477d-8461-2a329cce8b43" class="numbered-list" start="2"><li><strong>Entrega a tiempo sus trabajos</strong>.</li></ol><ol id="eef8a15c-e564-4049-9762-d81faf38408a" class="numbered-list" start="3"><li><strong>Sabe decir que no</strong>.</li></ol><ol id="f9471ea6-2dc1-40db-92e9-5a1ba3cd8ad1" class="numbered-list" start="4"><li><strong>No hace daño</strong>.</li></ol><p id="936d42f3-8b9b-447b-b85f-61f7745f564f" class="">‌</p><h2 id="e75b4d7f-4c03-4173-8c0c-1979fa717ef5" class="">Experiencia</h2><p id="3064f847-92af-4791-b642-06902fff9931" class="">‌</p><p id="ef9a7f42-a0ea-4d85-aa12-61c63fe25f89" class="">La experiencia no es algo que se pueda enseñar, tenemos que encontrarla nosotros mismos en el camino a ser profesionales. Todo está en nosotros, tenemos que estudiar y practicar mucho.</p><p id="726a5b34-6d10-4c06-842a-a497de24f15c" class="">
+</p><p id="42fbe8f0-7fe6-485d-8d0c-c3f234891d3b" class="">
+</p><h2 id="84704a41-498c-4707-b7f9-17326a84919d" class="">Inicio del proyecto</h2><p id="e765343b-b23d-4335-be21-7e43f16c8f30" class="">‌</p><p id="904aa328-b7cb-47dc-82d4-6d6abdf93060" class="">En este curso vamos a estar desarrollando una aplicación llamada: Platzi Video. En toda plataforma de video hay un componente especial en el desarrollo, tenemos que saber implementar el <em><strong>MediPlayer</strong></em>, en este curso vamos a estar desarrollando este <em>feature</em> de forma modular, esto quiere decir que vamos a desarrollar <em>plugins</em> que vamos a implementar a nuestro reproductor, extendiéndole sus funcionalidades. Vamos a comenzar con un poco de <strong>CSS</strong> y <strong>HTML</strong> ya escrito.</p><p id="6aee7f30-a611-4936-94b0-52905c714e9d" class="">‌</p><h2 id="298e0adc-a148-4f63-9e04-2236855e0fa9" class="">Primer paso</h2><p id="9e1637e4-713e-4bb0-ad0a-2e8ea09924dd" class="">‌</p><p id="973ce07c-7372-47db-a862-12abc2fd98b1" class="">Crearemos nuestros primeros archivos usando <code>npm init -y</code>, donde <code>-y</code> es una bandera que le dicta a <strong>npm</strong> que le diga sí a todas las preguntas que haga.</p><pre id="68c171ec-04b1-4bd0-864b-ebaedd99f47d" class="code code-wrap"><code>npm init -y
+</code></pre><p id="bfcf2c60-3874-47b7-a198-d032db619306" class="">‌</p><p id="aa14d752-3991-42e6-b941-34e197154769" class="">Esto nos creará un archivo <code>package.json</code> que lo sustituiremos por el siguiente:</p><pre id="6a77b594-4082-4f86-9b36-c0d4862a1744" class="code code-wrap"><code>{
+&quot;name&quot;:  &quot;platzi-media-player&quot;,
+&quot;version&quot;:  &quot;1.0.0&quot;,
+&quot;description&quot;:  &quot;Proyecto del Curso Profesional de JavaScript de la Escuela de JavaScript de Platzi.&quot;,
+&quot;license&quot;:  &quot;MIT&quot;,
+&quot;author&quot;:  &quot;César Augusto Barco &lt;augustopayza@gmail.com&gt;&quot;,
+&quot;keywords&quot;:  [
+ &quot;platzi&quot;
+ ],
+&quot;scripts&quot;:  {
+ &quot;start&quot;:  &quot;live-server&quot;
+ },
+&quot;devDependencies&quot;:  {
+		 &quot;live-server&quot;:  &quot;^1.2.1&quot;
+	 }
+}
+</code></pre><p id="9594d742-5832-47bc-b15f-6698eb4fb8b6" class="">‌</p><p id="3e12acc8-dcfa-4809-aaa6-b261b1c89dcc" class="">Una vez tengamos todo esto listo vamos a proceder a instalar nuestro <code>live-server</code> para empezar a trabajar. Para instalar esto vamos a usar el siguiente comando <code>npm i -D live-server</code> donde <code>i</code> significa <em>install</em> y la bandera <code>-D</code> <em>develoment</em>, esto quiere decir que no lo vamos a usar en producción.</p><p id="b2450758-4ab1-4ddc-bda1-0d6b58c13126" class="">‌</p><p id="c2664f41-e8d1-4853-9990-3e67b49f16be" class="">Una vez instalado ya lo podremos usar con el <code>package.json</code> que dejé arriba. Lo usaremos con el comando <code>start</code> que llamará a su vez a <code>live-server</code>.</p><p id="4085703b-73dc-459e-8c61-b5bfc19201a3" class="">‌</p><p id="26552738-5468-4159-89be-f1a9621264c8" class="">Antes de ejecutar este vamos a implementar varios archivos. Estos serán los siguientes:</p><p id="215d3402-8374-4b0d-9d47-c51e999b58d8" class=""><a href="https://firebasestorage.googleapis.com/v0/b/gitbook-28427.appspot.com/o/assets%2F-LlTyKe9xd6RJ6x5f2-z%2F-Ln9ZjFBlm-s-f1q7F63%2F-Ln9_0AO_RTk9HHBf8tM%2Findex.html?alt=media&amp;token=090c9439-1f81-49e1-9087-a2175ef1fbde">HTML</a></p><p id="5a5d2bf1-6041-4127-88d2-0febf088d3d0" class=""><a href="https://firebasestorage.googleapis.com/v0/b/gitbook-28427.appspot.com/o/assets%2F-LlTyKe9xd6RJ6x5f2-z%2F-Ln9ZjFBlm-s-f1q7F63%2F-Ln9_73eBUNHnXNiJ6eJ%2Findex.css?alt=media&amp;token=d91cbcaa-be06-47ea-8f51-538e5bd1f2ed">CSS</a></p><p id="5cfd001e-1bd9-4478-8b0f-7e3c72ccd6c7" class="">También cualquier video que tengamos en nuestra PC. Nuestras carpetas tienen que quedar de la siguiente forma:</p><figure id="15d838cb-8891-40f2-9aab-c9671b38314f" class="image"><a href="https://blobscdn.gitbook.com/v0/b/gitbook-28427.appspot.com/o/assets%2F-LlTyKe9xd6RJ6x5f2-z%2F-Ln9ZjFBlm-s-f1q7F63%2F-Ln9_Bamrmfcp4Ye0pUs%2FScreenshot_3.png?alt=media&amp;token=409d3bd4-47be-4a99-90de-758d6680d5d4"><img src="https://blobscdn.gitbook.com/v0/b/gitbook-28427.appspot.com/o/assets%2F-LlTyKe9xd6RJ6x5f2-z%2F-Ln9ZjFBlm-s-f1q7F63%2F-Ln9_Bamrmfcp4Ye0pUs%2FScreenshot_3.png?alt=media&amp;token=409d3bd4-47be-4a99-90de-758d6680d5d4"/></a></figure><p id="2b88955c-532c-46f9-a2c4-a8064a263a56" class="">‌</p><p id="e8d23a48-cc55-4b98-8a3e-55f8679989d7" class="">Ahora sí vamos a ejecutar nuestro pequeña aplicación.</p><p id="86b8a3e4-33f3-44ed-8f0c-2cb95325442f" class="">npm start</p><p id="d93701f2-1489-4eaa-97e8-263927ce82a5" class="">‌</p><p id="aa5b252f-2b25-47b0-966e-157d9e985306" class="">Nuestra pequeña aplicación andará en la <strong>IP</strong> que nos muestre la terminal.</p><figure id="7b2d3ffb-4bf3-4127-a152-481cf7ed2c4b" class="image"><a href="https://blobscdn.gitbook.com/v0/b/gitbook-28427.appspot.com/o/assets%2F-LlTyKe9xd6RJ6x5f2-z%2F-Ln9ZjFBlm-s-f1q7F63%2F-Ln9_EB4S1Itt5QTdYt8%2FScreenshot_4.png?alt=media&amp;token=409530b8-785b-47c8-8fe1-e29ddafd2c7b"><img src="https://blobscdn.gitbook.com/v0/b/gitbook-28427.appspot.com/o/assets%2F-LlTyKe9xd6RJ6x5f2-z%2F-Ln9ZjFBlm-s-f1q7F63%2F-Ln9_EB4S1Itt5QTdYt8%2FScreenshot_4.png?alt=media&amp;token=409530b8-785b-47c8-8fe1-e29ddafd2c7b"/></a></figure><p id="0e756e38-6606-4b41-b716-86a64476782f" class="">‌</p><h2 id="a7f40c2e-bfea-4906-ace5-a378a08f38b6" class="">¿Qué sigue?</h2><p id="3bc0f8a6-c7e4-4aa8-8c0b-01b15f91257d" class="">‌</p><p id="71c4c10c-3ba6-4db1-ad73-24a3d34fb04a" class="">Tenemos un botón que no funciona, lo vamos a poner a funcionar con un <code>media query</code>. Abrimos nuestras etiquetas de <code>script</code>.</p><p id="d9b404aa-affa-4cf7-bd2d-da7cb8fd4322" class="">‌</p><p id="fcd2721b-7114-4c92-8d47-5d3075797ca6" class="">Tenemos un vídeo que debemos manipular, lo vamos a hacer con <code>querySelector(&quot;&quot;)</code>, a este tenemos que pasarlo un elemento, en este caso será <strong>video</strong>, es el único elemento <strong>video</strong> en nuestro <strong>HTML</strong>. Tambien debemos traer nuestro botón con `querySelector``.</p><pre id="b5cf42d8-c008-4c7a-b1a0-2083a3678fba" class="code code-wrap"><code>const  video = document.querySelector(&quot;video&quot;)
+
+const  button = document.querySelector(&quot;button&quot;)
+</code></pre><p id="d1dc04f4-9f57-4138-a2e3-1dc7402202b7" class="">‌</p><p id="29e3ae64-80e1-46d8-a842-14faf4a7fe27" class="">Cuando le demos <strong>click</strong> a nuestro botón queremos que el vídeo se reproduzca. Lo hacemos de la siguiente manera:</p><pre id="d71e0424-f0a4-4c06-94a9-abf1b4d98c83" class="code code-wrap"><code>button.onclick = ()=&gt;video.play()
+</code></pre><p id="635426c4-906b-4130-bfa4-451abb12ce52" class="">‌</p><p id="3bb66692-909e-4a09-8e38-930cb9024e43" class="">El <code>video.play()</code> se saca de la API que trae el navegador, todos los elementos del DOM traen un API. Para saber cuales son las opciones de esta API podemos ir a <a href="https://developer.mozilla.org/es/docs/Web/API/HTMLMediaElement">MDN</a> a ver toda la documentación. No podemos darle <em>play</em> de una vez a penas se entre en la página, esto pasa por que los navegadores tienen una seguridad que no permite que esto pase, solo se puede dar <em>play</em> si el usuario tiene la libertad de hacerlo.</p><p id="e67fe6b5-e6f1-4b08-a42f-65d0d074dce6" class="">‌</p><p id="05044c39-a1ea-458e-a0b6-d4de2a4a86f8" class="">Ahora nuestro código no es muy extensible, vamos a lograr esto usando <strong>prototipado</strong>. Para hacerlo extensible se pueden usar <code>clases</code>, pero en este caso usaremos <code>protitype</code>, usaremos el siguiente código para lograrlo.</p><pre id="afeb4281-34cc-4373-ab17-23f05f7a6c5e" class="code code-wrap"><code>const  video = document.querySelector(&quot;video&quot;);
+
+const  button = document.querySelector(&quot;button&quot;);
+
+functionMediaPlayer(){}
+
+MediaPlayer.prototype.play =function() {
+
+ video.play()
+
+}
+
+const  player =new  MediaPlayer()
+
+button.onclick = () =&gt;  player.play();
+</code></pre><p id="a59a0414-2f00-4aa0-93a1-8890e73ade04" class="">‌</p><p id="a8590e8a-6d66-4a50-9b68-6c43d7eab451" class="">Explicación:</p><p id="624cf55f-50e5-4615-aee8-02994240a5e8" class="">‌</p><ol id="17b5108e-972e-46ba-925b-6fab3071229f" class="numbered-list" start="1"><li>Creamos una función llamada <code>mediaPlayer</code> que nos servirá como prototipo.</li></ol><ol id="37ee4d69-23c6-4a58-9b08-b1024f046eb3" class="numbered-list" start="2"><li>A <code>mediaPlayer</code> le asignamos una función llamada <code>play</code> usando <code>prototype</code>. Esta función le dará inicio al video.</li></ol><ol id="8d662d59-ea59-45bb-a4a4-4b041bfdea4b" class="numbered-list" start="3"><li>Luego con el botón se acciona una función llamada <code>player</code> que es una instancia del prototipo <code>mediaPlayer</code> que creamos. La instancia se crea usando la palabra <code>new</code>.</li></ol><p id="62379c8e-d0ea-437a-ba3b-764750923e1c" class="">‌</p><h2 id="9c5a55d2-a594-4b3d-82ca-a9ed4f0f5c1a" class="">Hagámoslo más reutilizable</h2><p id="b16803c4-7fd2-4f7b-8504-fa210aa08440" class="">‌</p><p id="b25b09d6-c414-4c3b-b92f-41fb9a08184a" class="">Para que nuestro código sea más reutilizable debemos hacerlo de esta manera:</p><pre id="11956639-718d-4a24-9ab6-84d1c6dd80d8" class="code code-wrap"><code>const  video = document.querySelector(&quot;video&quot;);
+const  button = document.querySelector(&quot;button&quot;);
+
+functionMediaPlayer(config) {
+this.media = config.el;
+}
+
+MediaPlayer.prototype.play =function() {
+this.media.play();
+};
+
+const  player =new  MediaPlayer({ el:  video });
+button.onclick = () =&gt;  player.play();
+</code></pre><p id="f40c8216-06e8-4a2b-a043-222de5f05c87" class="">‌</p><p id="ff91bd5f-e020-42b3-9392-1a91a03162b0" class="">Explicación:</p><p id="129c6cce-7031-4a7c-ad44-17d86aa4aa6d" class="">‌</p><ol id="054dd87c-e386-4daf-85eb-1f37747b5b42" class="numbered-list" start="1"><li>A nuestra función madre o prototipo le pasamos una configuración. Esta configuración lo que va a tener es el elemento <code>video</code> original. Le asignamos a <code>this.media</code> el elemento <code>video</code>.</li></ol><ol id="fdf796a1-a1e2-416b-9e37-b267eb29120f" class="numbered-list" start="2"><li>A la función extendida le asignamos <code>play()</code> a <code>this.media</code> para que se ejecute cuando presionemos el botón.</li></ol><ol id="e4b623b9-8c13-45dc-a27a-4f266a1bb73e" class="numbered-list" start="3"><li>En nuestra función especial <code>player</code> es una instancia del prototipo le asignaremos el valor de <code>video</code> para que lo reciba en configuración. Esto lo haremos con <strong>destructuración de objetos</strong>.</li></ol><p id="5b2c519f-c764-4592-8bf1-689a168950e3" class="">‌</p><p id="ce371d1b-0592-4d5c-ab05-275f6e590c14" class="">Acá no podemos usar <em><strong>arrow function</strong></em> por que el valor de <code>this</code> es global. Más adelante se verá con más detalle.</p><p id="4a1a542c-35b0-4aa5-815f-df3fbdad11ac" class="">‌</p><p id="55a0218b-2add-474c-92bf-da66149bf729" class="">Para agregarle la funcionalidad de <em>pausa</em> y <em>play</em> con el mismo botón, debemos condicionar la función <code>play</code> de <code>MediaPlayer</code> de la siguiente manera:</p><pre id="d27f4a8f-567a-4774-bde9-caba91de64e3" class="code code-wrap"><code>MediaPlayer.prototype.play =function() {
+if(this.media.paused){
+this.media.play();
+ }else {
+this.media.pause()
+ }
+
+ // o podemos usar lo siguiente:
+
+ // this.media.paused ? this.media.play() : this.media.pause()
+
+};</code></pre><p id="1aa6f681-00f1-4350-ac28-92e2b3835c69" class="">
+</p><p id="79c25969-01b6-4bde-8710-c2fbff087c2c" class="">
+</p><figure id="698ff322-3805-49d2-94e9-89e0e97fe2b5" class="image"><a href="JavaScript%20Profesional%20698ff322380549d294e989e0e97fe2b5/Untitled.png"><img style="width:1280px" src="JavaScript%20Profesional%20698ff322380549d294e989e0e97fe2b5/Untitled.png"/></a></figure><p id="a86ecee0-e0d2-4d50-ac68-aa2fcac58640" class="">
+</p><h2 id="9f799922-0b06-4870-b843-5574860ff54c" class="">Scope</h2><p id="c04f284f-2a6e-4954-862f-cc2b5bcf5b90" class="">‌</p><p id="99adf4f2-81eb-4f2f-99c2-21eb3b27a927" class=""><strong>Scope</strong> o <strong>ámbito de una variable</strong> representa el tiempo de vida en el que esta existe, puede ser una variable que hayamos definido o el argumento a un función. Eso es muy importante por que evite que reescribamos el valor de una variable que ya habíamos definido. Por desgracia JavaScript no siempre tuve el mejor sistema de scope de variables, en el libro <a href="https://www.amazon.es/JavaScript-Good-Parts-ebook/dp/B0026OR2ZY">JavaScript: The Good Parts</a> de <a href="https://www.amazon.es/Douglas-Crockford/e/B002N3VYB6?ref_=dbs_p_ebk_r00_abau_000000">Douglas Crockford</a> se dice que el <strong>scope</strong> y variables globales son de las cosas más horrible que tiene el lenguaje. Por suerte esto a mejorado muchísimo, ahora tenemos a <code>let</code> y <code>const</code> que nos ayuda a evitar estos problemas.</p><p id="b90c4f3a-140f-4464-89b1-ca58282d3b24" class="">‌</p><h2 id="27ac5da8-a588-49f1-9494-b07dc7cbb649" class="">Scope global</h2><p id="44c1bad0-42df-4549-894b-63b26976c5c7" class="">‌</p><p id="728cb33f-2520-4ad6-977e-f7b967ac9cf1" class="">Vamos a hacer algunas pruebas en el código para experimentar con estas variables.</p><p id="463e3ac2-8d5c-4024-8a83-27e0161f51fc" class="">‌</p><p id="10e9f2f7-39cd-4fc0-9eb0-bfafde78000f" class="">Si declaramos un <code>var</code> de la siguiente forma lo estaríamos haciendo globalmente.</p><pre id="8d86c005-dcdc-4506-9120-71f8258a005d" class="code code-wrap"><code>var message = &quot;¡Hello, Platzi!&quot;;
+</code></pre><p id="8ac007fd-9262-4bd1-8f44-12da415a33dc" class="">‌</p><p id="d2c884dd-f4a0-44b2-83b4-d943a21afe37" class="">Si vamos a la consola y escribimos <code>windows.message</code> no da el mensaje que guardamos en la consola. <code>Windows</code> es nuestro ámbito global.</p><p id="b7a35b2d-4a10-4902-a09c-d262751a4dce" class="">‌</p><p id="39c03a34-ed44-4605-a353-41a05acc354e" class="">Si agregamos una <strong>CDN</strong> externo como <strong>jQuery</strong> podremos acceder a ese código <strong>globalmente</strong>. El peligro está en cambiar alguna característica del CDN global que trajimos.</p><pre id="52a8afac-7cd7-4820-ae04-25e1e4e11aab" class="code code-wrap"><code>var message = &quot;¡Hello, Platzi!&quot;;
+var $ = function(message) {
+    console.log(&quot;Say: &quot; + message);
+}
+</code></pre><p id="b82a0b42-edb0-474c-bc1a-92b95e8c8fee" class="">‌</p><p id="4dd5b633-40fc-450e-a7be-20e54ee515ca" class="">Si escribimos en la consola lo siguiente no dará el resultado…</p><pre id="aa8c56e6-326e-4699-951e-3e99dd47a33f" class="code code-wrap"><code>$(&#x27;Hola&#x27;)
+
+ //  Say: Hola
+</code></pre><p id="df41e9eb-7fd0-45fb-8bbf-f263721acab4" class="">‌</p><p id="7d56aef5-9a8a-408b-84bd-5e4a5523d8f1" class="">Vimos que cambiamos por completo el acceso a elementos de jQuery, pero también nos dimos cuanta de que el message no era: <code>¡Hello, Platzi!</code> si no <code>Hola</code>, a esto se le llama: <strong>Scope definition</strong>.</p><p id="40386e45-3c26-4209-b376-dd6885c8c47a" class="">‌</p><p id="348b3744-a7f7-4e00-bf9c-1da48fae72a6" class="">Ahora hagamos otro ejemplo, una función que imprimirá números.</p><pre id="f91a4249-19bb-4351-9936-194ae0182833" class="code code-wrap"><code>function printNumbers(params) {
+          for (var i = 0; i &lt; 10; i++) {
+              setTimeout(() =&gt; {
+                  console.log(i)
+              }, 100);
+          }
+      }
+
+printNumbers()
+</code></pre><p id="10afe26f-77d5-4b4c-b107-0077092563dc" class="">‌</p><p id="f4478a8c-aa55-4afd-8bc9-f86ef3644f68" class="">Crea un siclo de <strong>10</strong> número del <strong>0</strong> al <strong>9</strong> y va a tener un retraso de <strong>100ms</strong>, pero si ejecutamos este código pasa algo extraño:</p><pre id="2a6f8ed1-d190-427a-b817-5e09064faa1d" class="code code-wrap"><code>// (10) 10
+</code></pre><p id="01eeb7c8-8e2e-4724-bbe6-c421fceeeaf4" class="">‌</p><p id="05cc65a7-dcbd-4d14-8415-7bf6d90887d8" class="">Se imprime 10 veces 10 y eso no es lo que queremos.</p><p id="bef9b064-deaa-45dd-888b-09f8d19c2f65" class="">‌</p><p id="dc1518e9-5683-414b-8763-91e68f61664e" class="">Esto pasa por <strong>function scope</strong>, algo pasa con la variables <code>var</code>, pasa que el lenguaje lo declara como variable global y cuando llega el turno de imprimir el valor de <strong>i</strong> resulta que ya tiene 10. Se soluciona llamando a una función en el ciclo que ejecute el <strong>setTimeOut</strong>.</p><pre id="0f041736-863d-4eaf-b3a6-431d8c343c31" class="code code-wrap"><code>function printNumbers(params) {
+          for (var i = 0; i &lt; 10; i++) {
+              function eventuallyPrintNumbers(n) {
+                  setTimeout(() =&gt; {
+                  console.log(n)
+              }, 100);
+              }
+              eventuallyPrintNumbers(i)
+          }
+      }
+
+      printNumbers()
+</code></pre><p id="7762fd27-516a-453e-9d55-e0040d8d7b35" class="">‌</p><p id="0ff2dfff-077f-4f1c-b765-f2539dd83b99" class="">Haciéndolo así <code>var</code> conserva su valor real por cada ciclo. El valor <code>i</code> paso a un scope <code>n</code> totalmente nuevo.</p><p id="e9a8c084-6503-400d-978a-e114b7b56ee1" class="">‌</p><h2 id="f273299e-4d49-421b-a445-4ce8374fcde5" class="">Block scope</h2><p id="93f06fc8-db65-4825-8050-cabd09ad24f8" class="">‌</p><p id="f5f9b4a4-9b1c-44ae-bdee-83c35a7470b8" class="">Con las nuevas actualizaciones tenemos acceso a una variable que trabaja en el bloque de ejecución, siempre recordando su valor.</p><pre id="8d4ffbbd-f6f4-481a-b15d-de0fc36d9102" class="code code-wrap"><code>function printNumbers(params) {
+        for (let i = 0; i &lt; 10; i++) {
+          setTimeout(() =&gt; {
+            console.log(i);
+          }, 100);
+        }
+      }
+
+      printNumbers();
+</code></pre><p id="56f79b48-4994-4c2a-a20f-e5f1db8277cd" class="">‌</p><h2 id="75a64b0d-90e6-47fa-81e8-e76c67b7b0d6" class="">Module scope</h2><p id="e27d2eeb-e3fd-4f4c-a129-27ad41ecc8be" class="">‌</p><p id="94faf2de-b5d5-4c80-a144-6f1de3147f7d" class="">Es probable que lo hayamos usado en <code>Node</code> o en <code>React</code> usando herramientas como <code>Babel</code>. Lo que hace es que el <code>scope</code> de esa variable se limite al archivo donde está definido.</p><pre id="eb14e9d7-997c-4f19-bccc-d4d0a207e270" class="code code-wrap"><code>&lt;script  type=&quot;module&quot;  src=&quot;./assets/index.js&quot;&gt;&lt;/script&gt;
+</code></pre><p id="7c253c21-a7af-48a8-8e35-3ed68b1c9a8a" class="">‌</p><p id="92e88f84-4549-4205-a266-818605ac7e8e" class="">El <code>type=&quot;module&quot;</code> declara que el archivo es un módulo. Esto no está en todos los navegadores pero sí en los más modernos. Ya no podemos acceder a las variables globales de este archivo desde la <strong>consola</strong>.</p><p id="cdc0f8c6-a655-49bf-a0fe-d9c56adef4ec" class="">‌</p><h2 id="590e6cc9-3f16-4f2b-971a-c07fa0f496e7" class="">Importar y exportar</h2><p id="023a4f53-7e19-4d9a-bd8a-6bb29386239b" class="">‌</p><p id="6e03dbaa-45b4-4d1f-9244-8155900eff0c" class="">Podemos separar código que esté en un archivo js usando <em>export</em> e <em>import</em>.</p><p id="0b826c42-e80c-430b-82a6-313b98b9ef4b" class="">‌</p><p id="e3e0b189-9a98-41a4-9047-d1b39e970323" class="">En nuestro archivo <code>./assets/index.js</code> separaremos el código que usar nuestro <em>media player</em> en otro archivo llamado <strong>MediaPlayer</strong>.</p><figure id="8b804b0b-a307-4e17-a124-b26dcce5c0e4" class="image"><a href="https://blobscdn.gitbook.com/v0/b/gitbook-28427.appspot.com/o/assets%2F-LlTyKe9xd6RJ6x5f2-z%2F-LnCp9qnZO5otXQYfGiF%2F-LnD2gOidag3AtKzIDkh%2FScreenshot_16.png?alt=media&amp;token=0e591456-3c77-46ca-a14c-16f7730ba955"><img src="https://blobscdn.gitbook.com/v0/b/gitbook-28427.appspot.com/o/assets%2F-LlTyKe9xd6RJ6x5f2-z%2F-LnCp9qnZO5otXQYfGiF%2F-LnD2gOidag3AtKzIDkh%2FScreenshot_16.png?alt=media&amp;token=0e591456-3c77-46ca-a14c-16f7730ba955"/></a></figure><p id="15fba0c4-f149-46b8-b130-4c1e304dc7b1" class="">‌</p><p id="0f43f731-cbca-4d50-8e64-ba4f349a41ce" class="">Nuestro archivo <code>index.js</code> tendrá:</p><pre id="f1bbff81-5a20-4bcc-a296-d6e8c3f2af4e" class="code code-wrap"><code>import MediaPlayer from &quot;./MediaPlayer.js&quot;;
+const video = document.querySelector(&quot;video&quot;);
+const button = document.querySelector(&quot;button&quot;);
+
+
+const player = new MediaPlayer({ el: video });
+
+button.onclick = () =&gt; player.play();
+</code></pre><p id="f0fccc27-b66d-4826-bb58-a4ae0f8f0f4b" class="">‌</p><p id="c885bc78-f527-479f-ab0e-73f1dfd6bc88" class="">Y el archivo <code>MediaPlayer.js</code>:</p><pre id="0a19d4a0-534f-4eda-8fe6-c01129b6af60" class="code code-wrap"><code>function MediaPlayer(config) {
+  this.media = config.el;
+}
+
+MediaPlayer.prototype.play = function() {
+  // if(this.media.paused){
+  //   this.media.play();
+  // } else {
+  //   this.media.pause()
+  // }
+  // o podemos usar lo siguiente:
+  this.media.paused ? this.media.play() : this.media.pause();
+};
+
+export default MediaPlayer;
+</code></pre><p id="47e1e862-1d78-484a-ad4a-5908e09bac71" class="">‌</p><p id="6afc1ea3-388b-4914-ae0b-eb7875ae6bfc" class="">Si exportamos una variable del archivo importado, ejemplo: <code>export const foo = &quot;hi&quot;</code>, entonces tendríamos que importarlo de la siguiente forma:</p><pre id="c6ed39b3-ce4c-4ad4-88de-772b813ed328" class="code code-wrap"><code>import  MediaPlayer, { foo } from  &quot;./MediaPlayer.js&quot;;
+</code></pre><p id="570ef79a-799b-4d3d-90d9-e28503717d57" class="">‌</p><p id="9fbfb071-e1f5-4d08-8f85-189d4008fbde" class="">Entre llaves.</p><p id="c33766cc-0bc6-43d1-833c-abd4431711c4" class="">‌</p><p id="8a8845a0-e640-4b8c-9b19-8efb03f2f62a" class="">El <strong>scope</strong> es el lugar de vida de una variable y nos evita sobrescribir el valor de esta. En JavaScript tenemos cuatro:</p><p id="6e382aff-38bc-4ec5-827d-0a8b2958f5ac" class="">‌</p><ol id="85836590-2546-4e14-9491-a00545d14eee" class="numbered-list" start="1"><li><strong>Global</strong> scope.</li></ol><ol id="e993613f-db8b-4872-97be-58ff0cb9dbbc" class="numbered-list" start="2"><li><strong>Function</strong> scope.</li></ol><ol id="56e75c37-933d-45de-926a-0ae8465f1dfc" class="numbered-list" start="3"><li><strong>Block</strong> scope.</li></ol><ol id="20d574f0-8ba2-44ca-8d86-d74491ae8243" class="numbered-list" start="4"><li><strong>Module</strong> scope.</li></ol><p id="d31fde14-1574-49b4-aa5e-10a142b6b640" class="">
+</p><p id="c0232317-6250-4d4d-a2b8-71b173c72425" class="">
+</p><h2 id="7bf7c02d-dd2c-4a8a-898b-1b8083a0ab9d" class="">Closures</h2><p id="dcbabcec-73ef-41d8-8add-dda4aec48e41" class="">‌</p><p id="930d6055-6db7-4e53-a593-f60eecb7674a" class="">Junto a <code>scope</code> cuando lo combinamos con <code>function</code> podemos crear algo que se llama <code>closure</code>. Para entenderlo veamos un ejemplo:</p><p id="0f2fc462-16dc-4e73-b671-fa40bd03b7cf" class="">‌</p><p id="c7f843c1-8df7-4dc0-af3a-160f383949e5" class="">Agreguemos este archivo a la carpeta de ejercicios:</p><p id="8bed927d-9610-48d1-b57f-b30a7cee3155" class=""><a href="https://firebasestorage.googleapis.com/v0/b/gitbook-28427.appspot.com/o/assets%2F-LlTyKe9xd6RJ6x5f2-z%2F-LnDU2j-5zEy68-1NOpV%2F-LnDwnbbAPdkWBBcChRw%2Fclosures.html?alt=media&amp;token=6b93393d-8afc-46ce-b787-294e53cd9190">Closure.html</a></p><p id="9af1b239-18c1-40b4-a99f-4935fb3f8723" class="">‌</p><p id="7dfdebd0-e5f7-4036-a61d-37a7a1d92617" class="">Tenemos la variable <code>color</code> disponible globalmente. Para evitar que sea global vamos a crear una función que se va a llamar automáticamente. Esto se logra con <strong>IIFE</strong>(<em>Immediately-invoked function expressions</em>), es una función que se llama de la siguiente manera: <code>(function(){})()</code>.</p><pre id="583a4d8f-9663-4520-83e2-7f0eb6012add" class="code code-wrap"><code>(function() {
+        let color = &quot;green&quot;;
+
+        function printColor() {
+          console.log(color);
+        }
+
+        printColor();
+      })();
+</code></pre><p id="cb65fe12-acd9-41ba-96b3-ed7e9c19672e" class="">Al hacer esto ya la variable color no estará en un ámbito global sino funcional. Cuando combinamos un <strong>scope</strong> con una <strong>función</strong> sucede esto que ya hicimos, el famoso <strong>clousure</strong>. La función que se encuentra en su interior puede acceder a la variable.</p><p id="19e08dd1-c99e-4839-8386-5886147311d8" class="">‌</p><h2 id="cce82064-a617-4e10-b305-d0d677fc6a39" class="">Segundo ejemplo</h2><p id="157933c1-9f6e-42a8-94f0-756fd1c89c29" class="">‌</p><p id="bcc9f9c6-879c-4bf4-8ced-5ff963f713b7" class="">Vamos a crear una maquina que imprima colores en la consola. Vamos a hacer una función que nos devuelva otra función.</p><pre id="7000eed7-b603-4dfd-b358-fd0c22def039" class="code code-wrap"><code>function makeColorPrinter(params) {
+        let colorMessage = `The color is ${params}`;
+
+        return function() {
+          console.log(colorMessage);
+        };
+      }
+
+      let greenColorPrinter = makeColorPrinter(&quot;green&quot;);
+      console.log(greenColorPrinter());
+</code></pre><p id="00b9b9df-f45e-405a-a055-74513b41f276" class="">‌</p><p id="c487c733-8285-4a29-af33-82ec0621bcb3" class="">Acá pasa algo interesante, la función que está dentro de <code>makeColorPrinter()</code> recuerda el valor de <code>colorMessage</code> aún cuando es llamado en la variable <code>greenColorPrinter</code>, está afuera de su <strong>scope</strong> pero aún lo recuerda. A esto se le llama closure, una funcionalidad que el lenguaje no trae por sí solo, logramos que se memorizara el <code>scope</code>. El <strong>feature</strong> que creamos se llama <strong>variables privadas</strong>.</p><p id="0d7d2049-2d22-4eb6-80da-8634c79bfbff" class="">‌</p><h2 id="4b032d2b-2469-4f5b-afb7-5e4c0858fe16" class="">Variables privadas</h2><p id="118fa9df-a4d1-4c6f-b875-b3d79c395fb8" class="">‌</p><p id="f409e6b1-95d8-4831-b43d-f83a07b73c7f" class="">Supongamos que tenemos el siguiente código que crea un contador.</p><pre id="49a4edd8-23b7-4d3a-9669-34c3a4947a39" class="code code-wrap"><code>const counter = {
+        count: 3
+      }
+
+      console.log(counter.count);
+</code></pre><p id="8cbcac03-9a62-4b2b-b613-0edc424c00e4" class="">‌</p><p id="216f6c73-1e84-436b-9526-5f41040feabf" class="">No queremos que <code>.log</code> pueda leer nuestra variable, <strong>¿cómo la hacemos privada?</strong> Para eso tenemos que crear una función.</p><p id="bc5b2c76-3a83-4f5b-8472-bafe8ba16e21" class="">‌</p><pre id="53cbed47-90b8-4dc0-8cbe-c50b6dc2044e" class="code code-wrap"><code>    return {
+      increase: function() {},
+      decrease: function() {},
+      getCount: function() {}
+    };
+  }
+  let counter = makeCounter(5)
+</code></pre><p id="eafcf639-18cc-49f4-8208-e9cbea11d9c8" class="">‌</p><p id="91847454-c139-41df-bd09-cc542d5b3529" class=""><strong>¿Qué sucede acá?</strong> Ahora tenemos una variable privada por que si accedemos a <code>counter.count</code> no nos dará ningún valor, si usamos <code>console.log(counter.count)</code> no nos arrojará nada, pero sí tenemos las tres funciones declaradas disponibles; <code>increase</code>; <code>decrease</code>; <code>getCount</code>. Para acceder al valor de <code>count</code> lo tenemos que hacer usando la función <code>getCount</code> que sí tenemos disponible. Podemos hacer lo siguiente:</p><pre id="265dcf25-ed59-4806-a147-8d5aa73c21f5" class="code code-wrap"><code>getCount:  function()  {
+	 return count;
+}
+</code></pre><p id="e45e24e0-baff-46c0-be98-5555e7449b1e" class="">‌</p><p id="855e30c7-5cfb-4ab5-a5c9-aabe948adf3b" class="">Ahora si usamos <code>console.log(counter.getCount())</code> sí nos dará el valor de la <strong>variable privada</strong>. ¡Sorprendente!</p><p id="cd72796d-4b50-4862-b52d-6dc1b7188060" class="">‌</p><p id="09bb9929-1541-4ee8-9587-487b98d3306f" class="">Si no queremos que nuestra variable sea reescrita podemos usar la variable privada usando funciones.</p><p id="3383561a-4c3a-44cf-af37-ccb3103b5854" class="">‌</p><h2 id="cfd4a3f4-179e-4616-a77d-0d209ab140a4" class="">Sigamos implementando</h2><p id="9f491f14-a270-468b-af3e-771225712cda" class="">‌</p><p id="243061bb-d417-4d94-bf9b-abc3054f947a" class="">Terminemos de acomodar nuestra función para agregarles las funcionalidad; <code>decrease</code>; <code>increase</code>.</p><pre id="a26c3d8f-5086-489f-8ee4-09430f4d0c59" class="code code-wrap"><code>function makeCounter(n) {
+        let count = n;
+
+        return {
+          increase: function() {
+            count = count + 1;
+          },
+          decrease: function() {
+            count = count - 1;
+          },
+          getCount: function() {
+            return count;
+          }
+        };
+      }
+      let counter = makeCounter(5);
+</code></pre><p id="e382cad3-c508-4396-8ead-9835530205f3" class="">Ahora si podemos sumar y restar la variable usando nuestras nuevas funciones:</p><pre id="ea853ebb-d997-416e-8db3-c2474dbff4d2" class="code code-wrap"><code>console.log(counter.getCount()); // 5
+      counter.increase()
+      counter.increase()
+      counter.increase()
+console.log(counter.getCount()); // 8
+      counter.decrease()
+      counter.decrease()
+      counter.decrease()
+      counter.decrease()
+console.log(counter.getCount()); // 4
+</code></pre><p id="9dc07d05-de3b-4449-9117-014ad798e3ad" class="">‌</p><p id="ee1de353-0d0b-4534-9506-bafec23d132b" class="">Pero si queremos cambiar el valor con <code>counter.count = 10</code> no lo vamos a lograr.</p><p id="68eaf51e-810d-47b8-9298-f0eebc89f744" class="">counter.count = 10 // No pasa nada</p><p id="a3846c54-4707-4d5d-96d6-4a9060ce14b8" class="">‌</p><p id="e65ea7e1-d053-47ba-bb8a-a90b2ce82cb7" class="">El valor de la variable privada no se puede acceder directamente ni alterar directamente, se puede lograr mediante algunas funciones.</p><p id="5d588c22-0772-45ff-9a25-e457c0e6d500" class="">
+</p><h2 id="d4b5c30a-6506-4372-831d-a4f35155f9fd" class=""><strong>This</strong></h2><p id="4f134c1b-7b8d-415c-88f2-dc7c04108857" class="">
+</p><p id="928b990d-06ed-4d1b-822b-116884a209ed" class=""><em>this</em> se refiere a un objeto, ese objeto es el que actualmente está ejecutando un pedazo de código.</p><p id="e7c0910c-cb66-4fba-aa1c-f6924246fca5" class="">No se puede asignar un valor a <em>this</em> directamente y este depende de en que scope nos encontramos:</p><ul id="63acdd03-21e8-4d4e-ba5d-9e34a69b5a50" class="bulleted-list"><li>Cuando llamamos a <em>this</em> en el <strong>Global Scope o Function Scope</strong>, se hace referencia al objeto <em>window</em>. A excepción de cuando estamos en <strong>strict mode</strong> que nos regresará <em>undefined</em>.</li></ul><ul id="cd4a57f9-70f3-4e13-bf96-ae7811b044be" class="bulleted-list"><li>Cuando llamamos a <em>this</em> desde <strong>una función</strong> que está contenida en un objeto, <em>this</em> se hace referencia a ese objeto.</li></ul><ul id="e3f7ef12-4e5e-4ec3-b33a-9115deab9989" class="bulleted-list"><li>Cuando llamamos a <em>this</em> desde una <strong>“clase”</strong>, se hace referencia a la instancia generada por el constructor.</li></ul><p id="f11181f6-74a3-4a43-9716-5ddb6d9310fd" class="">
+</p><h2 id="eb0af809-2cfd-4488-9d29-7d24798da146" class="">Los métodos call, apply y bind</h2><p id="fd019b0e-6717-401d-b86d-1cd915319679" class="">
+</p><p id="8161361f-1896-4c42-a319-580518dcde2d" class="">Estas funciones nos sirven para establecer el valor de <em>this</em>, es decir cambiar el contexto que se va usar cuando la función sea llamada.</p><p id="62d2f663-4fd4-4627-86b5-b6c2f14898ed" class="">Las funciones <strong>call, apply y bind</strong> son parte del prototipo Function. Toda función usa este prototipo y por lo tanto tiene estas tres funciones.</p><ul id="cf63792b-fd33-4dcc-940e-d95def3848f3" class="bulleted-list"><li><strong>functionName.call()</strong>. Ejecuta la función recibiendo como primer argumento el <em>this</em> y los siguientes son los argumentos que recibe la función que llamó a call.</li></ul><ul id="9a5fc27c-e69d-4c34-ba68-1f46e2ceb14d" class="bulleted-list"><li><strong>functionName.apply()</strong>. Ejecuta la función recibiendo como primer argumento el <em>this</em> y como segundo un arreglo con los argumentos que recibe la función que llamó a apply.</li></ul><ul id="2c55ec93-0e57-4e8f-be18-2d1fb59bcf35" class="bulleted-list"><li><strong>functionName.bind()</strong>. Recibe como primer y único argumento el <em>this</em>. No ejecuta la función, sólo regresa otra función con el nuevo this integrado.</li></ul><p id="40c68f70-9df5-407e-aa97-093299aed5b5" class="">
+</p><h1 id="9ef3b30f-5dc8-463c-8d58-7902122a8aa8" class=""><strong>Prototype</strong></h1><p id="778517a3-d35a-4997-87bd-de35454eeb54" class="">
+</p><p id="be0ae949-a4bc-4153-b81e-31979f404f01" class="">En Javascript todo son objetos, no tenemos clases, no tenemos ese plano para crear objetos.</p><p id="65d63e2c-378c-4f3f-ba45-11a38e4bfd04" class="">Todos los objetos “heredan” de un prototipo que a su vez hereda de otro prototipo y así sucesivamente creando lo que se llama la <strong>prototype chain</strong>.</p><p id="5733f133-2e75-42ed-b1ef-d38f84033d39" class="">La keyword <em>new</em> crea un nuevo objeto que “hereda” todas las propiedades del prototype de otro objeto. No confundir prototype con <strong>proto</strong> que es sólo una propiedad en cada instancía que apunta al prototipo del que hereda.</p><p id="34ad0d08-2a23-4676-9015-bf8a79bf7c8f" class="">
+</p><h1 id="6566db88-85c7-422c-9dfa-9a14dd4257d4" class="">Herencia Prototipal</h1><p id="9dfd60ae-7a99-4e36-adaf-8f10b89967ab" class="">
+</p><p id="75ec3844-77bf-4449-8c03-06ea27afaaad" class="">Por default los objetos en JavaScript tienen cómo prototipo a <strong>Object</strong> que es el punto de partida de todos los objetos, es el prototipo padre. Object es la raíz de todo, por lo tanto tiene un prototipo padre <em>undefined</em>.</p><p id="5b661e78-6798-4184-871a-3cfd28137106" class="">Cuando se llama a una función o variable que no se encuentra en el mismo objeto que la llamó, se busca en toda la prototype chain hasta encontrarla o regresar <em>undefined</em>.</p><p id="4a462c8b-1e55-4c23-af46-0fdce41565f9" class="">La función <strong>hasOwnProperty</strong> sirve para verificar si una propiedad es parte del objeto o si viene heredada desde su prototype chain.</p><p id="9dffdf39-921c-433b-8cc1-07d622907940" class="">
+</p><h1 id="788be1e7-215a-4c5c-a1e9-a6b4ed11c638" class="">Parsers y el Abstract Syntax Tree</h1><p id="b411c2af-85c6-45fe-8b26-56e2ab1095dc" class="">
+</p><p id="6b72cd80-d10a-45d0-9456-40e991c403d4" class="">El JS Engine recibe el código fuente y lo procesa de la siguiente manera:</p><ul id="83837434-40b7-4a7b-bbe0-ac75ea677829" class="bulleted-list"><li>El <strong>parser</strong> descompone y crea tokens que integran el <strong>AST</strong>.</li></ul><ul id="45e86825-ef8e-4714-9619-b6e719f45dac" class="bulleted-list"><li>Se compila a <strong>bytecode</strong> y se ejecuta.</li></ul><ul id="47da55d9-3e24-470a-bb0f-637faf0dd30c" class="bulleted-list"><li>Lo que se pueda se <strong>optimiza a machine code</strong> y se reemplaza el código base.</li></ul><p id="cfc2ef58-9768-4002-901d-f9c627ba659e" class="">Un <strong>SyntaxError</strong> es lanzado cuando el motor JavaScript encuentra partes que no forman parte de la sintaxis del lenguaje y esto lo logra gracias a que se tiene un AST generado por el parser.</p><p id="22d6c409-b912-48a6-9392-a54ec0118ef4" class="">El <em>parser</em> es del 15% al 20% del proceso de ejecución por lo que hay que usar parser del código justo en el momento que lo necesitamos y no antes de saber si se va a usar o no.</p><p id="3cdfafaa-a02f-4975-9169-3d825df59e6b" class="">
+</p><p id="63efa432-e8a8-44f5-8d75-a525a1332c2c" class="">
+</p><h2 id="71e787e5-7b08-4483-a9c3-d4ec90b63897" class="">Parsers y el Abstract Syntax Tree</h2><p id="006ddf70-ff26-44ca-a0da-feb93366ad84" class="">‌</p><p id="bd4527bb-474d-4023-894c-115d64841faa" class="">Para que el código llegue al navegador tiene que pasar muchas cosas, agarra el código, lo analiza, lo descontruye, lo construye nuevamente, lo ejecuta y lo optimiza. Vamos a hablar de todo esto.</p><p id="d3d93e08-794f-40f8-83e2-8b80437721a6" class="">‌</p><h2 id="0e0db3ec-e5eb-4c3d-beae-da5a57b0f818" class="">La web</h2><p id="2c8c3e6f-c842-49b1-b941-21780abac5ca" class="">‌</p><p id="c1d85929-6381-49e0-b19d-13f842c35eed" class="">Ha cambiado mucho, cuando empezó a leer JavaScript lo hacía con <code>Netscape</code> que hacía cosas muy simples, se leía línea por línea, un paso a la vez. Hoy es igual, pero ahora de una forma diferente, ahora <strong>Google</strong> lo ha cambiado, ellos necesitaban a un navegador que ejecutara todo eficientemente. Por eso reinventó el funcionamiento del motor de <code>JavaScipt</code>. En resumen esto es lo que hace:</p><figure id="f9d1cf8b-1425-4a00-9975-96c72c118573" class="image"><a href="https://blobscdn.gitbook.com/v0/b/gitbook-28427.appspot.com/o/assets%2F-LlTyKe9xd6RJ6x5f2-z%2F-LoBMLhD1_J2PtZzvrDo%2F-LoBMn-8Q8TceF9mxDoZ%2FScreenshot_10.png?alt=media&amp;token=7e948d8a-471c-454b-b00b-99dd75fccb14"><img src="https://blobscdn.gitbook.com/v0/b/gitbook-28427.appspot.com/o/assets%2F-LlTyKe9xd6RJ6x5f2-z%2F-LoBMLhD1_J2PtZzvrDo%2F-LoBMn-8Q8TceF9mxDoZ%2FScreenshot_10.png?alt=media&amp;token=7e948d8a-471c-454b-b00b-99dd75fccb14"/></a></figure><p id="c8faeeba-b61e-4c62-8638-0d7daacd51ac" class="">‌</p><p id="d9ab9d0c-26a7-42e8-afb8-5bdcbffb909e" class="">Este es el proceso que realiza JavaScript para lograr ejecutar su código de la mejor forma posible. Ahora veamos un gráfico donde se explica mejor.</p><figure id="ed0a803b-c5e8-4b82-8039-352cbf4146b9" class="image"><a href="https://blobscdn.gitbook.com/v0/b/gitbook-28427.appspot.com/o/assets%2F-LlTyKe9xd6RJ6x5f2-z%2F-LoBMLhD1_J2PtZzvrDo%2F-LoBMsLB7cpFBtb-EZ9L%2FScreenshot_11.png?alt=media&amp;token=bc179ac3-ae0f-4c89-b10c-b1fae0986f80"><img src="https://blobscdn.gitbook.com/v0/b/gitbook-28427.appspot.com/o/assets%2F-LlTyKe9xd6RJ6x5f2-z%2F-LoBMLhD1_J2PtZzvrDo%2F-LoBMsLB7cpFBtb-EZ9L%2FScreenshot_11.png?alt=media&amp;token=bc179ac3-ae0f-4c89-b10c-b1fae0986f80"/></a></figure><p id="f0dfb324-8925-4c59-9ff0-77ce5834ce9e" class="">‌</p><ul id="53e8b80e-380e-4da2-85d6-f4f6ac1abb45" class="bulleted-list"><li><strong>Bytecode</strong>: es un código de más bajo nivel que permite que se ejecute mucho más rápido.</li></ul><ul id="c3218d3a-44b1-4d04-921c-d531e31ed13f" class="bulleted-list"><li><strong>Profiling data</strong>: encuentra todos los puntos optimizables del código para luego dar paso al <em>optimizer compiler</em></li></ul><ul id="5885d7ca-cb97-4664-b671-2cdca09fbd2d" class="bulleted-list"><li><strong>Optimized code</strong></li></ul><p id="f065f748-a9a0-4855-b14e-9be9a0814f6c" class="">‌</p><p id="118ffb1a-76ad-4435-a517-236a603017e4" class="">Aveces este proceso falla y se quita la optimización.</p><p id="2066a902-ef80-4e3e-a48b-025868f743c9" class="">‌</p><h2 id="d229fe6d-0dee-4ed6-baa3-1b0ddf5f6d46" class="">Parser</h2><p id="18b48f68-4037-44bf-ac89-801151ebb92a" class="">‌</p><p id="225c0b20-ad63-47a0-b271-ce1fd67357e1" class="">Este agarra tu código fuente y lo lee, pero tiene que descomponerlo primero, a estos pedazos se les llama <em>tokens</em>, identifica que significa cada palabra o símbolo. Una vez teniendo esta información se pasa al <em><strong>Abstract Syntax Tree</strong></em>.</p><figure id="e6ae9452-2699-48df-b4fb-9157c5037b75" class="image"><a href="https://blobscdn.gitbook.com/v0/b/gitbook-28427.appspot.com/o/assets%2F-LlTyKe9xd6RJ6x5f2-z%2F-LoBMLhD1_J2PtZzvrDo%2F-LoBMwAgrV-aWtsbRwjx%2FScreenshot_12.png?alt=media&amp;token=a4d41b94-1e5b-4de6-8f33-7e6a061a195d"><img src="https://blobscdn.gitbook.com/v0/b/gitbook-28427.appspot.com/o/assets%2F-LlTyKe9xd6RJ6x5f2-z%2F-LoBMLhD1_J2PtZzvrDo%2F-LoBMwAgrV-aWtsbRwjx%2FScreenshot_12.png?alt=media&amp;token=a4d41b94-1e5b-4de6-8f33-7e6a061a195d"/></a></figure><p id="7890e7ca-15e2-4ce2-a852-9e54c92bb274" class="">‌</p><p id="491e4fc7-dcd7-46e4-917a-6552e8f666e0" class="">Cuando sucede un error en esta lectura es donde sucede el <code>syntaxError</code>. No se puede leer tu código y no tiene sentido, los lenguajes de programación son muy formales, no se puede violar las reglas. Este proceso tiene que hacerse muy bien. Veamos que dice <strong>Google</strong> sobre este tema.</p><figure id="411bdcbd-1f04-461e-9ba4-2e062ad1ca10" class="image"><a href="https://blobscdn.gitbook.com/v0/b/gitbook-28427.appspot.com/o/assets%2F-LlTyKe9xd6RJ6x5f2-z%2F-LoBMLhD1_J2PtZzvrDo%2F-LoBN0Y_a0Moc2i_Vocu%2FScreenshot_13.png?alt=media&amp;token=fbf8b78c-6af5-4904-98b9-794f320a4daa"><img src="https://blobscdn.gitbook.com/v0/b/gitbook-28427.appspot.com/o/assets%2F-LlTyKe9xd6RJ6x5f2-z%2F-LoBMLhD1_J2PtZzvrDo%2F-LoBN0Y_a0Moc2i_Vocu%2FScreenshot_13.png?alt=media&amp;token=fbf8b78c-6af5-4904-98b9-794f320a4daa"/></a></figure><p id="6a56165d-2673-49ce-b69f-a9682ab3e92c" class="">‌</p><p id="918e9f18-2aa7-4f20-88ed-3b98bbda8e09" class="">La mayoría del código no se ejecuta, por esto tenemos que empaquetar nuestro código de forma eficiente, a esto se le llama <em>bunding</em> y <em>code splitting</em>, separaremos el código y lo cargaremos cuando sea necesario solamente. Esto se ve mucho en la <strong>SPA</strong>.</p><p id="0dfe4192-1b10-425e-b136-b181f9c80557" class="">‌</p><p id="d99ffe46-9db8-4c26-af09-87a3adc610da" class="">Existen forma de hacer, concretamente dos, veamos cómo lo hace el <strong>V8</strong>.</p><figure id="ca94d8cf-9731-4ad1-9089-db9c35543a7e" class="image"><a href="https://blobscdn.gitbook.com/v0/b/gitbook-28427.appspot.com/o/assets%2F-LlTyKe9xd6RJ6x5f2-z%2F-LoBMLhD1_J2PtZzvrDo%2F-LoBN4CAxmGYvGfV_Gp0%2FScreenshot_14.png?alt=media&amp;token=961d63a2-209a-4c71-85be-635948944a4e"><img src="https://blobscdn.gitbook.com/v0/b/gitbook-28427.appspot.com/o/assets%2F-LlTyKe9xd6RJ6x5f2-z%2F-LoBMLhD1_J2PtZzvrDo%2F-LoBN4CAxmGYvGfV_Gp0%2FScreenshot_14.png?alt=media&amp;token=961d63a2-209a-4c71-85be-635948944a4e"/></a></figure><p id="267ae781-a8f1-4009-8fa4-72b858a45ce4" class="">‌</p><p id="1e5329fe-6f06-4d79-8428-9cf57b74f157" class="">Cuando se hace el <em>Eager Parsing</em> es donde se ve los errores y crea el <strong>AS</strong>T, el árbol se lectura de nuestro programa, también se construye los scopes para leer las variables globales o privadas.</p><p id="03f96480-fa2b-4c9d-ae08-4aab93970ac7" class="">‌</p><p id="cae5a0a5-6b8f-4d8e-9b55-cb66c24720f5" class="">Cuando hacemos <em>Lazy Parsing</em> retrasamos alguna parte del código, logrando un <strong>x2</strong> de rápido en la lectura, no se crea el <strong>AST</strong> y los <strong>scopes</strong> se construyen parcialmente.</p><p id="d72c5a00-ad04-4619-8095-459b3f0aa4a3" class="">‌</p><h2 id="a8f9489a-dd72-4d4f-b72c-ea358928e350" class="">Tokens</h2><p id="30bae81b-e21a-46e3-b1e3-8f9f63c408ef" class="">‌</p><p id="c93b8a2b-ce0f-4272-9560-de13c6b4c34f" class="">Te compartiré un <strong>link</strong> donde puedes experimentar con los <em>tokens</em> para ver cómo funciona.</p><p id="ed690417-d7b5-4386-af39-50e375b8462d" class="">‌</p><ul id="9d296d8a-d56d-4da0-869a-c64da0ad44eb" class="bulleted-list"><li><a href="https://esprima.org/demo/parse.html">Tokens | Demo</a></li></ul><p id="3c51fc27-5c87-491f-ad19-5adce0a36177" class="">‌</p><p id="46be1cef-192e-4b19-b3d2-f2fa7ff47e87" class="">Allí veremos como nos arroja los tokens de una declaración.</p><pre id="f6138f74-7c15-45f1-b4d0-ae97cbd8175c" class="code code-wrap"><code>&gt; var answer = 6 * 7;
+&lt; [
+	    {
+	        &quot;type&quot;: &quot;Keyword&quot;,
+	        &quot;value&quot;: &quot;var&quot;
+	    },
+	    {
+	        &quot;type&quot;: &quot;Identifier&quot;,
+	        &quot;value&quot;: &quot;answer&quot;
+	    },
+	    {
+	        &quot;type&quot;: &quot;Punctuator&quot;,
+	        &quot;value&quot;: &quot;=&quot;
+	    },
+	    {
+	        &quot;type&quot;: &quot;Numeric&quot;,
+	        &quot;value&quot;: &quot;6&quot;
+	    },
+	    {
+	        &quot;type&quot;: &quot;Punctuator&quot;,
+	        &quot;value&quot;: &quot;*&quot;
+	    },
+	    {
+	        &quot;type&quot;: &quot;Numeric&quot;,
+	        &quot;value&quot;: &quot;7&quot;
+	    },
+	    {
+	        &quot;type&quot;: &quot;Punctuator&quot;,
+	        &quot;value&quot;: &quot;;&quot;
+	    }
+	]
+</code></pre><p id="a0048237-aba6-4d13-bea0-251d03f7c5a1" class="">‌</p><p id="8732b341-df3e-41ff-95e4-7a2026bc477e" class="">Esto nos da el tipo y el valor que tiene cada palabra, símbolo o número. Tendremos cada uno de los caracteres clasificados para poder manipular y leer cada uno de ellos.</p><p id="ca221947-e922-4a12-92da-e82c29dae14b" class="">‌</p><h2 id="a75414af-7b49-4f7b-bf13-06914588726f" class="">AST</h2><p id="86098bc3-7b93-4243-9ea4-a5b9bc90a3ce" class="">‌</p><p id="f39ac81a-9bf7-4233-83b3-ebdc2f755359" class="">Esta es una estructura en forma de árbol, <em><strong>Abstract Syntax Tree</strong></em>. Este empieza desde una raíz y se desploma en partes.</p><figure id="41304955-8f79-4064-9b81-a8406f6fc9c1" class="image"><a href="https://blobscdn.gitbook.com/v0/b/gitbook-28427.appspot.com/o/assets%2F-LlTyKe9xd6RJ6x5f2-z%2F-LoBMLhD1_J2PtZzvrDo%2F-LoBN86xTwwuf5tX7KfZ%2FScreenshot_15.png?alt=media&amp;token=194427bf-c15b-4884-96ee-cb56bb2f8a63"><img src="https://blobscdn.gitbook.com/v0/b/gitbook-28427.appspot.com/o/assets%2F-LlTyKe9xd6RJ6x5f2-z%2F-LoBMLhD1_J2PtZzvrDo%2F-LoBN86xTwwuf5tX7KfZ%2FScreenshot_15.png?alt=media&amp;token=194427bf-c15b-4884-96ee-cb56bb2f8a63"/></a></figure><p id="0e3fb01f-032e-44ac-9bc0-1ad6295ba4ad" class="">‌</p><p id="812efa63-4fd8-42e3-82f9-9dc9f9b8a265" class="">Se puede usar en muchos lugares, para corregir el código, para compilar, entre otras funciones. Podemos experimentar en el siguiente enlace.</p><p id="3d9c3c94-5339-4a1d-a011-47857dc7b1c1" class="">‌</p><ul id="150dd965-0172-4c9f-8870-60b7faf1afaf" class="bulleted-list"><li><a href="https://astexplorer.net/">AST | Example</a></li></ul><p id="2146a2f3-3879-4a72-a0ca-57338efaf002" class="">‌</p><p id="2448bca9-c385-468c-8bda-be4c19658e98" class="">Allí veremos como se va ramificando nuestro programa y va haciéndolo en form</p><p id="cd753037-9305-49f0-a52d-ce29a7158c99" class="">
+</p><p id="956e4e44-efe4-415c-9e21-a11bb10d5916" class="">
+</p><h2 id="90bf4a9a-273b-44e5-982c-cb6a43c73335" class="">Abstract Syntax Tree en Práctica</h2><p id="6cc04134-8e6b-4d71-abff-17d7f3adf7a1" class="">‌</p><p id="43f2cff4-aa5d-433d-979d-fed5709340af" class="">Vamos a usar el <strong>AST</strong> para crear una regla de <strong>eslint</strong>, este analizará estéticamente nuestro código a ver si hay que levantar un <em>warning</em> por violar la sintaxis. Muchas de estas reglas ya viene con e <em>eslint</em>, pero podemos agregar nuestras propias reglas. Vamos a usar la herramienta <a href="https://astexplorer.net/#/gist/16fc27fc420f705455f2b42b6c804aa1/d9cc7988c2c743d7edfbb3c3b1abed866c975ee4">AST | Explorer</a> para experimentar. Usaremos la configuración por defecto, veremos en la parte superior izquierda el código que vamos a ingresar, a la derecha el <em>tree</em> creado, en la parte inferior izquierda las funciones de las reglas y a la derecha de eso la salida de nuestro código.</p><p id="99db977a-1077-4cf5-9441-1857c487b76b" class="">‌</p><h2 id="2bce49d4-669c-4268-8127-28c9b991477a" class="">Test</h2><p id="c904d16a-52e2-423b-8522-1c51aab9b269" class="">‌</p><p id="d7474877-a53c-4cb3-b4cd-1aaf2ad83d63" class="">En el <strong>link</strong> de <strong>AST Explorer</strong> ya tenemos un código escrito. Donde el la primera entrada tenemos las tareas que debe cumplir nuestro <strong>fixer</strong>.</p><pre id="eef80c83-14af-4ebb-87d8-dad3739672c9" class="code code-wrap"><code>const pi = 3.1415;
+const half_pi = 1.57075;
+// variable constantes
+// variables que guarden un numero
+
+// El nombre de la variable tiene que estar en UPPERCASE
+</code></pre><p id="420f7470-3c0b-42e9-a31f-1fedd6c6a105" class="">‌</p><p id="fdc7a9ee-ee92-46ff-9b04-d76141554961" class="">A la derecha tenemos el árbol completo de todas estas declaraciones y gracias a el podemos manipular, detectar errores o interpretar lo que escribamos. Luego implementamos una función que recibe la declaración de la variable y accedemos a los datos que nos ofrece el AST para lograr cumplir con los requerimientos de nuestro solucionador.</p><pre id="4aa12cfa-9cf5-41f1-aa29-859ce8909d9d" class="code code-wrap"><code>export default function(context) {
+  return {
+    VariableDeclaration(node) {
+        // tipo de variable const
+          if (node.kind === &quot;const&quot;) {
+          const declaration = node.declarations[0];
+
+          // asegurarnos que el valor es un numero
+          if (typeof declaration.init.value === &quot;number&quot;) {
+            if (declaration.id.name !== declaration.id.name.toUpperCase()) {
+              context.report({
+                node: declaration.id,
+                message: &quot;El nombre de la constante debe estar en mayúsculas&quot;,
+                fix: function(fixer) {
+                  return fixer.replaceText(declaration.id, declaration.id.name.toUpperCase())
+                }
+              })
+            }
+          }
+        }
+    }
+  };
+};
+</code></pre><p id="2efcc860-c8f0-4c43-9ec9-8b56946ff3c8" class="">‌</p><p id="b3158321-0064-46ad-a017-13c6f95e95de" class="">Con <code>context.report()</code> podemos mandar un <em>warning</em> y además podemos solucionar el problema que se haya presentado.</p><p id="4fe193ed-922a-486e-9ba4-4358a49eb656" class="">
+</p><h1 id="4b01e032-652c-4c7c-b761-e4cd6a8677e4" class="">Cómo funciona el JavaScript Engine</h1><p id="bc08eccc-e794-415a-9d88-dc0816071b5f" class="">
+</p><p id="b7ac2949-0515-4911-821e-e9fe47770012" class="">Una vez tenemos el <strong>AST</strong> ahora hay que convertirlo a Bytecode.</p><p id="249d2418-d299-47da-86ed-8f28af92f3d9" class=""><strong>Bytecode</strong> es como el código assembler pero en lugar de operar en el procesador opera en la máquina virtual <strong>V8</strong> del navegador.</p><p id="d4205fd7-027f-42a8-ba65-4b2ca028a3b9" class=""><strong>Machine code</strong> es el más bajo nivel, es código binario que va directo al procesador.</p><p id="faa810ca-b454-42f7-a540-dae255e0732e" class=""><strong>El profiler</strong> se sitúa en medio del bytecode y el optimizador</p><p id="ae174392-12b1-431a-a2a5-6be946611c15" class="">Cada máquina virtual tiene sus particularidades, por ejemplo V8 tiene algo llamado <strong>Hot Functions</strong>.</p><p id="5bf1462b-4e15-480d-add0-5f6a78d9b8f7" class="">Cuando una sentencia función es ejecutada muy frecuentemente, V8 la denomina como una <em>hot function</em> y hace una optimización que consiste en convertirla a <em>machine code</em> para no tener que interpretarla de nuevo y agilizar su ejecución.</p><p id="48b28dfc-1bb2-4cb6-8cb8-ed519e6c971a" class="">Cada navegador tiene su implementación de JavaScript Engine:</p><ul id="d3ab89f9-5183-483d-994e-2c9b5b01a6dc" class="bulleted-list"><li>SpiderMonkey - Firefox</li></ul><ul id="558619a7-fa97-4b41-90bd-feb46223c6cc" class="bulleted-list"><li>Chackra - Edge</li></ul><ul id="89f6dfd3-3bff-45f4-bdc1-87a615f00843" class="bulleted-list"><li>JavaScriptCore - Safari</li></ul><ul id="0ff29415-c277-4f6c-8cc2-7ac882affa82" class="bulleted-list"><li>V8 - Chrome</li></ul><p id="dbdd66e9-75db-4363-be81-098ca60ff8c8" class="">
+</p><p id="93dcd9b4-ad68-48d7-9e10-644853ee2533" class="">
+</p><h2 id="d3b64a6a-a221-4e95-99ff-d0112b3b57a9" class="">Cómo funciona el JavaScript Engine</h2><p id="5a1d3dde-3b95-4908-8512-344fab6c09e6" class="">‌</p><p id="354efbfb-6600-4c60-adb7-498703628d72" class="">Justo después de que el <strong>AST</strong> se crea se pasa el código a <em>Bytecode</em>. <strong>Bytecode</strong>: es lo que va a estar ejecutando el motor de JavaScript y a su vez va a estar produciendo código optimizado.</p><p id="9735a694-32a0-457e-8452-1b53e9da6b73" class="">‌</p><p id="fab90481-ab47-4d73-b21e-456845382d42" class="">Las observaciones que se hace al <em>Bytecode</em> cuando se ejecuta hace posible optimizarlo.</p><figure id="e5376cc1-e399-441a-abe3-695976511091" class="image"><a href="https://blobscdn.gitbook.com/v0/b/gitbook-28427.appspot.com/o/assets%2F-LlTyKe9xd6RJ6x5f2-z%2F-LoHySotWO02mHhrAiu3%2F-LoHyiMuJqRlHCN37qYA%2FScreenshot_7.png?alt=media&amp;token=e66df5d8-da6e-4b82-a973-1be4c97fc4df"><img src="https://blobscdn.gitbook.com/v0/b/gitbook-28427.appspot.com/o/assets%2F-LlTyKe9xd6RJ6x5f2-z%2F-LoHySotWO02mHhrAiu3%2F-LoHyiMuJqRlHCN37qYA%2FScreenshot_7.png?alt=media&amp;token=e66df5d8-da6e-4b82-a973-1be4c97fc4df"/></a></figure><p id="b5cdd42d-4d5a-4fec-acc3-82152983d231" class="">‌</p><p id="0c88ab5b-3ffc-46ae-bbc0-bbe9f8685719" class=""><em>Bytecode</em> es parecido a <em>assembly</em> pero sobre un motor virtual. <em>Assembly</em> es el código en binario.</p><p id="b65e711b-c354-4f68-97c1-fb2973e82d80" class="">‌</p><p id="1d89ecde-5aff-4e8c-8dfc-b55544ca1f9f" class="">Cuando el motor v8 produce este código lo crea en machine code.</p><p id="15117aef-44c3-49c7-a6d7-1a90206a30a1" class="">‌</p><p id="d69c3f61-ed87-44c3-8beb-420d3fbd2701" class="">El <em>profiling</em> toma anotaciones de <em>bytecode</em> y ve repeticiones en el código puede hacer optimizaciones. Ejemplo:</p><figure id="79a67392-07ca-40a6-acd1-80f927da6971" class="image"><a href="https://blobscdn.gitbook.com/v0/b/gitbook-28427.appspot.com/o/assets%2F-LlTyKe9xd6RJ6x5f2-z%2F-LoHySotWO02mHhrAiu3%2F-LoHynrE7TgE3np1fCwB%2FScreenshot_8.png?alt=media&amp;token=b813f91f-41c7-492b-9c55-0144978af3d2"><img src="https://blobscdn.gitbook.com/v0/b/gitbook-28427.appspot.com/o/assets%2F-LlTyKe9xd6RJ6x5f2-z%2F-LoHySotWO02mHhrAiu3%2F-LoHynrE7TgE3np1fCwB%2FScreenshot_8.png?alt=media&amp;token=b813f91f-41c7-492b-9c55-0144978af3d2"/></a></figure><p id="95b7f397-9d8a-45f5-b919-fb57c3c97394" class="">‌</p><p id="26d46516-3d3c-4853-abbe-e98be3ed0997" class="">Cuando una función está hot significa que es hora de optimizar esa parte del código, eso sucede cuando se llama muchas veces. Allí es donde se pasa a <strong>machine code</strong>.</p><p id="e645d8d1-55c7-4b5c-af76-d575eca8202e" class="">‌</p><p id="033d5bf6-bb1b-4135-8600-5e5275932730" class="">Cuando la función recibe un parámetro diferente se quita la optimización y se pasa a <strong>bytecode</strong>.</p><p id="2c4e4cff-d4ed-400a-8e6b-2f46d71fc1a4" class="">‌</p><p id="c02f1d13-964c-4acb-84d9-e67c3e03ec8a" class="">Veamos las capas de optimización:</p><figure id="ec7cf08e-0734-4036-ac48-3f01198f3335" class="image"><a href="https://blobscdn.gitbook.com/v0/b/gitbook-28427.appspot.com/o/assets%2F-LlTyKe9xd6RJ6x5f2-z%2F-LoHySotWO02mHhrAiu3%2F-LoHystDJW4HMil1OSnP%2FScreenshot_9.png?alt=media&amp;token=f92283a6-65ff-41e1-a8db-dff5ad2e8cf1"><img src="https://blobscdn.gitbook.com/v0/b/gitbook-28427.appspot.com/o/assets%2F-LlTyKe9xd6RJ6x5f2-z%2F-LoHySotWO02mHhrAiu3%2F-LoHystDJW4HMil1OSnP%2FScreenshot_9.png?alt=media&amp;token=f92283a6-65ff-41e1-a8db-dff5ad2e8cf1"/></a></figure><figure id="2bf333df-f4e9-4433-b500-2399ae805c59" class="image"><a href="https://blobscdn.gitbook.com/v0/b/gitbook-28427.appspot.com/o/assets%2F-LlTyKe9xd6RJ6x5f2-z%2F-LoHySotWO02mHhrAiu3%2F-LoHywmk6l01P7UexFGD%2FScreenshot_10.png?alt=media&amp;token=4bacc50e-4c0c-40ef-9354-bbe781b585a2"><img src="https://blobscdn.gitbook.com/v0/b/gitbook-28427.appspot.com/o/assets%2F-LlTyKe9xd6RJ6x5f2-z%2F-LoHySotWO02mHhrAiu3%2F-LoHywmk6l01P7UexFGD%2FScreenshot_10.png?alt=media&amp;token=4bacc50e-4c0c-40ef-9354-bbe781b585a2"/></a></figure><figure id="d6fb7823-8dba-4d4f-aa91-56eed0790e32" class="image"><a href="https://blobscdn.gitbook.com/v0/b/gitbook-28427.appspot.com/o/assets%2F-LlTyKe9xd6RJ6x5f2-z%2F-LoHySotWO02mHhrAiu3%2F-LoHz-nKI9hr0cTXU6TD%2FScreenshot_11.png?alt=media&amp;token=93afaade-0159-44b8-a26f-53f60d6a8eb9"><img src="https://blobscdn.gitbook.com/v0/b/gitbook-28427.appspot.com/o/assets%2F-LlTyKe9xd6RJ6x5f2-z%2F-LoHySotWO02mHhrAiu3%2F-LoHz-nKI9hr0cTXU6TD%2FScreenshot_11.png?alt=media&amp;token=93afaade-0159-44b8-a26f-53f60d6a8eb9"/></a></figure><figure id="1102e5a8-43b5-4dce-8105-1b0506deee06" class="image"><a href="https://blobscdn.gitbook.com/v0/b/gitbook-28427.appspot.com/o/assets%2F-LlTyKe9xd6RJ6x5f2-z%2F-LoHySotWO02mHhrAiu3%2F-LoHz458fc5WLhEhC5aB%2FScreenshot_12.png?alt=media&amp;token=79942ddb-aaae-4e88-9712-71152a695819"><img src="https://blobscdn.gitbook.com/v0/b/gitbook-28427.appspot.com/o/assets%2F-LlTyKe9xd6RJ6x5f2-z%2F-LoHySotWO02mHhrAiu3%2F-LoHz458fc5WLhEhC5aB%2FScreenshot_12.png?alt=media&amp;token=79942ddb-aaae-4e88-9712-71152a695819"/></a></figure><p id="140f18bd-1d58-4694-8710-be742f5e108d" class="">‌</p><p id="8ddea182-d6d5-48c3-9202-1ceaeed4b322" class="">Cada navegador tiene su propia forma de optimizar su código. Quizá nos parezca muy diferente pero al final hace su trabajo; ejecutar el código de la mejor forma.</p><p id="0d6b3bb6-d578-4698-b559-87c561afee8f" class="">
+</p><h1 id="0d55d28e-8dfd-4177-adce-4fd78b1cd14e" class="">Event Loop</h1><p id="96627f73-c901-4b3a-a1be-b8728cd0bac7" class="">
+</p><p id="bb86c122-64b9-4989-a9ff-d0433df67ddd" class="">El <strong>Event Loop</strong> hace que Javascript parezca ser multihilo a pesar de que corre en un solo proceso.</p><p id="a40bc876-e040-4241-9fdd-f2a265707a7e" class="">Javascript se organiza usando las siguientes estructuras de datos:</p><ul id="8a3a4dc2-5c0a-4713-97ea-af46ca18f55a" class="bulleted-list"><li><strong>Stack</strong>. Va apilando de forma organizada las diferentes instrucciones que se llaman. Lleva así un rastro de dónde está el programa, en que punto de ejecución nos encontramos.</li></ul><ul id="b1699501-ffcf-4944-8bd2-e06fc78734b1" class="bulleted-list"><li><strong>Memory Heap</strong>. De forma desorganizada se guarda información de las variables y del scope.</li></ul><ul id="dc6ac533-07d3-4630-9876-b299e9483b9a" class="bulleted-list"><li><strong>Schedule Tasks</strong>. Aquí se agregan a la cola, las tareas programadas para su ejecución.</li></ul><ul id="f28617c8-1c6f-49da-8a66-8417f7e82ea7" class="bulleted-list"><li><strong>Task Queue</strong>. Aquí se agregan las tares que ya están listas para pasar al stack y ser ejecutadas. El stack debe estar vacío para que esto suceda.</li></ul><ul id="33f9d872-0bc8-4568-a625-d0d3f596282f" class="bulleted-list"><li><strong>MicroTask Queue</strong>. Aquí se agregan las promesas. Esta Queue es la que tiene mayor prioridad.</li></ul><p id="1601002b-4598-4c54-b200-98fb998e1a22" class="">El Event Loop es un loop que está ejecutando todo el tiempo y pasa periódicamente revisando las queues y el stack moviendo tareas entre estas dos estructuras.</p><p id="19b88590-a0c5-470a-a7ae-db27027a1777" class="">
+</p><h1 id="f9fe42df-63f4-4e44-a60f-7982cda280ca" class="">Promesas</h1><p id="be3d8010-731c-454e-ad15-610eb1aded4c" class="">
+</p><p id="8efbdf32-4ccc-4989-9906-0f60a29b2c85" class="">Para crear las promesas usamos la clase Promise. El constructor de Promise recibe un sólo argumento, un callback con dos parámetros, <strong>resolve</strong> y <strong>reject</strong>. resolve es la función a ejecutar cuando se resuelve y reject cuando se rechaza.</p><p id="e6bebfdd-e088-40be-8e83-b7a9363eb2c2" class="">El async/await es sólo syntax sugar de una promesa, por debajo es exactamente lo mismo.</p><p id="0f651908-d5df-4cf1-b0d4-486467193ee3" class="">La clase Promise tiene algunos métodos estáticos bastante útiles:</p><ul id="d97c5b6c-0f33-49c6-bb8f-ce10cb3443f8" class="bulleted-list"><li><strong>Promise.all</strong>. Da error si una de las promesas es rechazada.</li></ul><ul id="9387184e-efd8-4390-8b5a-cfc8b6ba9700" class="bulleted-list"><li><strong>Promise.race</strong>. Regresa sólo la promesa que se resuelva primero.</li></ul><p id="62ff8e42-5af8-4fc9-95f6-73fb205f0107" class="">
+</p><h1 id="6075dae5-2b9e-4877-81b6-d6e7f363055c" class="">Getters y setters</h1><p id="101d7f31-0259-4f98-9636-dc75bc017347" class="">
+</p><p id="37e13199-4a96-425c-8c0c-80842d8d4233" class="">Los getters y setters son funciones que podemos usar en un objeto para tener propiedades virtuales. Se usan los keywords <em>set</em> y <em>get</em> para crear estas propiedades.</p><p id="c96b23d8-2380-4db2-a175-d11f37b65d1a" class="">Estas propiedades al ser funciones pueden llevar una validación de por medio y ser usadas con el operador de asignación como si fueran una variable más dentro del objeto.</p><p id="0018b5b4-3887-43a6-99cb-a922ceff90d0" class="">
+</p><h1 id="72001db0-0ef0-40e1-83bd-2f41a7dca8d3" class="">Proxy</h1><p id="7d382e8a-1684-47c6-ab56-263a7b16fd68" class="">El proxy sirve para interceptar la lectura de propiedades de un objeto (los get, y set) entre muchas otras funciones. Así, antes de que la llamada llegue al objeto podemos manipularla con una lógica que nosotros definamos.</p><p id="2d338ffb-c1db-458c-bd40-a0076f01f62d" class="">
+</p><h1 id="d798a2e0-2d25-4d28-b48a-9a74ec3e5044" class="">Generators</h1><p id="d9ed7f0d-6b17-4c82-8316-95ba444e5b66" class="">
+</p><p id="ddb72e2d-df9f-444b-9177-2303df3832e1" class="">Los generadores son funciones especiales, pueden pausar su ejecución y luego volver al punto donde se quedaron recordando su <em>scope</em>.</p><p id="4c0ef054-07da-413f-bfea-5a17461ea4e4" class="">Algunas de sus características:</p><ul id="6652f5d9-b4da-481c-9248-534c87713f85" class="bulleted-list"><li>Los generadores regresan una función.</li></ul><ul id="e24658c8-b6a8-4466-a872-e8c597f48d4b" class="bulleted-list"><li>Empiezan suspendidos y se tiene que llamar <em>next</em> para que ejecuten.</li></ul><ul id="8696e038-11e8-4aef-8c44-057dd97533ed" class="bulleted-list"><li>Regresan un <em>value</em> y un <em>boolean done</em> que define si ya terminaron.</li></ul><ul id="42f51a15-567e-4602-9e86-a36b47bcc2e0" class="bulleted-list"><li><em>yield</em> es la instrucción que regresa un valor cada vez que llamamos a <em>next</em> y detiene la ejecución del generador.</li></ul><h1 id="4e07872f-8250-486b-b64a-88caff2b8298" class=""><strong>Fetch - Cómo cancelar peticiones</strong></h1><p id="5f04d433-fd4b-4dd7-9e46-7a51671757e7" class="">
+</p><p id="dd9b709d-f55b-487e-b2e9-0c5642062e4f" class="">La peticiones AJAX permitieron en su tiempo hacer peticiones asíncronas al servidor sin tener que detener la carga de la página. Hoy en día se utiliza la función <strong>fetch</strong> para esto.</p><p id="d5cf3851-fdb7-4f48-92b9-c158786872b0" class="">Con <strong>fetch</strong> tenemos algo llamado <strong>AbortController</strong> que nos permite enviar una señal a una petición en plena ejecución para detenerla.</p><p id="bde67559-d1f9-4789-8959-7ff0c2b023eb" class="">
+</p><figure id="b0d20bd9-7bd5-4ef2-b350-6e1fa52d9c71" class="link-to-page"><a href="JavaScript%20Profesional%20698ff322380549d294e989e0e97fe2b5/TYPESCRIPT%20b0d20bd97bd54ef2b3506e1fa52d9c71.html">TYPESCRIPT</a></figure><p id="900131cd-db0e-437b-a02e-126b34fd9284" class="">
+</p><h2 id="6de9a101-3735-476f-9e12-09d52c4379f3" class="">Patrón de diseño</h2><p id="20379568-091a-4341-89ed-0d1dcb2d7a99" class=""><a href="https://es.wikipedia.org/wiki/Patr%C3%B3n_de_dise%C3%B1o#mw-head">Ir a la navegación</a><a href="https://es.wikipedia.org/wiki/Patr%C3%B3n_de_dise%C3%B1o#p-search">Ir a la búsqueda</a></p><p id="26ecf8ea-a91e-46cf-ba2d-ac86d3522c30" class="">Los <strong>patrones de diseño</strong> son unas técnicas para resolver problemas comunes en el <a href="https://es.wikipedia.org/wiki/Desarrollo_de_software">desarrollo de </a><a href="https://es.wikipedia.org/wiki/Desarrollo_de_software"><em>software</em></a> y otros ámbitos referentes al diseño de interacción o interfaces.</p><p id="45647256-74bd-4f7b-8e86-260857fa84e3" class="">Un patrón de diseño resulta ser una solución a un problema de diseño. Para que una solución sea considerada un patrón debe poseer ciertas características. Una de ellas es que debe haber comprobado su efectividad resolviendo problemas similares en ocasiones anteriores. Otra es que debe ser reutilizable, lo que significa que es aplicable a diferentes problemas de diseño en distintas circunstancias.<a href="https://es.wikipedia.org/wiki/Patr%C3%B3n_de_dise%C3%B1o#cite_note-1">1</a></p><h2 id="2819e2ad-fbb0-4288-9ef9-a3bd874a614b" class="">Objetivos de los patrones</h2><p id="4a7fa72f-0a7f-414b-96f9-c38749dd001c" class="">Los patrones de diseño pretenden:</p><ul id="ccd9b33d-ed95-4f8a-ab3b-c1c3f1179129" class="bulleted-list"><li>Proporcionar catálogos de elementos reusables en el diseño de sistemas software.</li></ul><ul id="4fc0389e-6b67-4698-8310-4e96d908028b" class="bulleted-list"><li>Evitar la reiteración en la búsqueda de soluciones a problemas ya conocidos y solucionados anteriormente.</li></ul><ul id="c0a08971-f28a-401a-9835-c44642992c80" class="bulleted-list"><li>Formalizar un vocabulario común entre diseñadores.</li></ul><ul id="f5987eb4-6517-4aa0-bd53-3256e4c34705" class="bulleted-list"><li>Estandarizar el modo en que se realiza el diseño.</li></ul><ul id="e9abd516-7991-4818-ba02-64c59d8bb413" class="bulleted-list"><li>Facilitar el aprendizaje de las nuevas generaciones de diseñadores condensando conocimiento ya existente.</li></ul><p id="fd57054f-4bc8-4843-a7a9-51785b3a1194" class="">Asimismo, no pretenden:</p><ul id="20f41677-5c14-44e2-a644-46e39b1e6308" class="bulleted-list"><li>Imponer ciertas alternativas de diseño frente a otras.</li></ul><ul id="5304c3df-3d35-4f4b-b701-0183f919161a" class="bulleted-list"><li>Eliminar la creatividad inherente al proceso de diseño.</li></ul><p id="cfef0ba5-dd5c-4244-b2b3-7c70d35b0341" class="">No es obligatorio utilizar los patrones, solo es aconsejable en el caso de tener el mismo problema o similar que soluciona el patrón, siempre teniendo en cuenta que en un caso particular puede no ser aplicable. “Abusar o forzar el uso de los patrones puede ser un error”.</p><h2 id="b07a9da4-70f1-4a9d-9634-ff46c65cb95f" class="">Volver a aprender el diseño CSS</h2><p id="0b67a08c-b19e-4c7b-ae3c-fffc85425fe5" class="">Si te encuentras luchando con el diseño CSS, es probable que estés tomando decisiones sobre los navegadores que deberían tomar ellos mismos. A través de una serie de diseños simples y <a href="https://every-layout.dev/rudiments/composition">componibles</a> , <strong>cada diseño</strong> le enseñará cómo aprovechar mejor los algoritmos integrados que potencian los navegadores y CSS.</p><p id="b5535180-5773-43cf-9ea9-26b7e4a3fb98" class="">Emplear un diseño de diseño algorítmico significa eliminar los <code>@media</code>puntos de interrupción, los &quot; <a href="https://css-tricks.com/magic-numbers-in-css/">números mágicos</a> &quot; y otros trucos para crear componentes de diseño independientes del contexto. Sus futuros sistemas de diseño serán más consistentes, tendrán menos código y serán más maleables en manos de sus usuarios y sus dispositivos.</p><h2 id="e9d62588-77c1-4a6f-a73f-524dc29ffa74" class="">Historia[<a href="https://es.wikipedia.org/w/index.php?title=Patr%C3%B3n_de_dise%C3%B1o&amp;action=edit&amp;section=1">editar</a>]</h2><p id="d5af622c-425b-418f-914a-37e16df692be" class="">En 1979 el <a href="https://es.wikipedia.org/wiki/Arquitecto">arquitecto</a> <a href="https://es.wikipedia.org/wiki/Christopher_Alexander">Christopher Alexander</a> aportó al mundo de la arquitectura el libro <em>The Timeless Way of Building</em>; en él proponía el aprendizaje y uso de una serie de patrones para la construcción de edificios de una mayor calidad, en la que esa mayor calidad se refería a la arquitectura antigua y la menor calidad correspondía a la arquitectura moderna, que el romper con la arquitectura antigua había perdido esa conexión con lo que las personas consideraban que era calidad.</p><p id="28b1d03e-c40e-4a4d-a425-7a8f7e04c650" class="">En palabras de este autor, &quot;Cada patrón describe un problema que ocurre infinidad de veces en nuestro entorno, así como la solución al mismo, de tal modo que podemos utilizar esta solución un millón de veces más adelante sin tener que volver a pensarla otra vez.&quot;Los patrones que Christopher Alexander y sus colegas definieron, publicados en un volumen denominado <em>A Pattern Language</em>, son un intento de formalizar y plasmar de una forma práctica generaciones de conocimiento arquitectónico. Los patrones no son principios abstractos que requieran su redescubrimiento para obtener una aplicación satisfactoria, ni son específicos a una situación particular o cultural; son algo intermedio. Un patrón define una posible solución correcta para un problema de diseño dentro de un contexto dado, describiendo las cualidades invariantes de todas las soluciones. Dentro de las soluciones de Christopher Alexander se encuentran cómo se deben diseñar ciudades y dónde deben ir las perillas de las puertas.</p><p id="b51ab340-5742-4486-a13d-8713692a8c63" class="">Más tarde, en 1987, <a href="https://es.wikipedia.org/wiki/Ward_Cunningham">Ward Cunningham</a> y <a href="https://es.wikipedia.org/wiki/Kent_Beck">Kent Beck</a>, sobrepasados por el pobre entrenamiento que recibían los nuevos programadores en orientación a objetos, se preguntaban cómo se podían capturar las buenas ideas para, luego de alguna manera, traspasarlas a los nuevos programadores recién instruidos en herencia y polimorfismo. Leyendo a Alexander se dieron cuenta del paralelo que existía entre la buena arquitectura propuesta por Alexander y la buena arquitectura OO, de modo que usaron varias ideas de Alexander para desarrollar cinco patrones de interacción hombre-ordenador (HCI) y publicaron un artículo en OOPSLA-87 titulado <strong>Using Pattern Languages for OO Programs</strong>.</p><p id="fce53b26-9512-421e-82b2-9f3dacf89158" class="">No obstante, no fue hasta principios de la década de 1990 cuando los patrones de diseño tuvieron un gran éxito en el mundo de la informática a partir de la publicación del libro <a href="https://es.wikipedia.org/w/index.php?title=Design_Patterns&amp;action=edit&amp;redlink=1"><em>Design Patterns</em></a> escrito por el grupo <a href="https://es.wikipedia.org/w/index.php?title=Gang_of_Four_(dise%C3%B1o)&amp;action=edit&amp;redlink=1">Gang of Four</a> (<strong>GoF</strong>) compuesto por <a href="https://es.wikipedia.org/wiki/Erich_Gamma">Erich Gamma</a>, <a href="https://es.wikipedia.org/w/index.php?title=Richard_Helm&amp;action=edit&amp;redlink=1">Richard Helm</a>, <a href="https://es.wikipedia.org/w/index.php?title=Ralph_Johnson_(inform%C3%A1tica)&amp;action=edit&amp;redlink=1">Ralph Johnson</a> y <a href="https://es.wikipedia.org/w/index.php?title=John_Vlissides&amp;action=edit&amp;redlink=1">John Vlissides</a>, en el que se recogían 23 patrones de diseño comunes.</p><p id="406ed46e-eb3d-469d-9a76-7280e14b396b" class="">
+</p><p id="e2a37129-bd08-4a20-bb3c-1d994be12507" class=""><strong>Patrones de diseño</strong> </p><p id="8cf3c52b-4e89-4e91-841f-b8fd739ff7da" class="">➡️<strong>Creacionales </strong>Proveen diferentes mecanismos para crear objetos.</p><ul id="d815850c-fdf3-45c4-815d-a1a8ecfc2e53" class="bulleted-list"><li>Abstract Factory</li></ul><ul id="d7f91fde-4450-467d-a0c8-10fb90631d7a" class="bulleted-list"><li>Builder</li></ul><ul id="aab0c536-aadd-46f2-b11b-e6a8f3464cb3" class="bulleted-list"><li>Factory Method</li></ul><ul id="2751999c-ca7e-4110-94a7-4efb9ceec2db" class="bulleted-list"><li>Prototype</li></ul><ul id="e34ae79b-c315-4c64-ad4b-e45efcedf63b" class="bulleted-list"><li>Singleton</li></ul><p id="72445c7e-0744-48da-b10c-b0715729f86b" class="">➡️<strong>Estructurales </strong>Describen formas de componer objetos para formar nuevas estructuras flexibles y eficientes.</p><ul id="dbc3ca32-3753-4f44-9415-7b7fead00957" class="bulleted-list"><li>Adapter</li></ul><ul id="4e1adff4-e788-4eb8-a960-ceef6df334a2" class="bulleted-list"><li>Bridge</li></ul><ul id="44b2f55c-6ef1-42b7-9b01-7e1f27e5efda" class="bulleted-list"><li>Composite</li></ul><ul id="489676c4-9250-4e79-b0d5-3c66b59c0f6f" class="bulleted-list"><li>Decorator</li></ul><ul id="2071f679-3739-4d68-a558-20a7077b3804" class="bulleted-list"><li>Facade</li></ul><ul id="0ab2bb81-946e-4df3-891e-a1f7aad1a95f" class="bulleted-list"><li>Flyweight</li></ul><ul id="80b5577c-f753-401a-81d0-fe2b1a4d8f1a" class="bulleted-list"><li>Proxy</li></ul><p id="b193f3b0-8461-4c4d-b9ce-2db45c0a0a0f" class=""> ➡️<strong>Comportamiento </strong>Gestionan algoritmos y responsabilidades entre objetos.</p><ul id="e04ab197-b776-4eee-af0c-de6aa9bf7149" class="bulleted-list"><li>Chain of Responsibility</li></ul><ul id="69211207-75a7-40bf-b0c8-3983ed6de225" class="bulleted-list"><li>Command</li></ul><ul id="f5e6b85c-7b60-402b-bd20-d9df1f969877" class="bulleted-list"><li>Interpreter</li></ul><ul id="ede3fec5-9e64-4f36-a258-a409baa95206" class="bulleted-list"><li>Iterator</li></ul><ul id="3896cf39-c7ca-4765-a7ed-d0b868428822" class="bulleted-list"><li>Mediator</li></ul><ul id="8d25ddc4-60cf-430d-bc08-e37534a85ed7" class="bulleted-list"><li>Memento</li></ul><ul id="878c2e80-24b1-4a90-b35b-b7df116f4184" class="bulleted-list"><li>Observer</li></ul><ul id="284a2dc7-2ad0-4ab8-b646-c2fe3678dc90" class="bulleted-list"><li>State</li></ul><ul id="cbbd3d9b-669f-4af8-b4a6-6f4bee5682f8" class="bulleted-list"><li>Strategy</li></ul><ul id="e7e50d0c-93e0-4908-a4cc-be9574b9fc6c" class="bulleted-list"><li>Template Method</li></ul><ul id="753de80c-b362-4ba8-b046-9a6bba54da0f" class="bulleted-list"><li>Visitor</li></ul><p id="2493950e-de96-496e-a22c-1e4f42155cd9" class="">
+</p><h2 id="10203ec1-07c8-4c76-8501-40c46f9aaf08" class="">Singleton</h2><figure id="04fb5338-eb47-4b40-8768-207ffa66f090" class="image"><a href="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Singleton_UML_class_diagram.svg/250px-Singleton_UML_class_diagram.svg.png"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Singleton_UML_class_diagram.svg/250px-Singleton_UML_class_diagram.svg.png"/></a></figure><p id="00805d71-c988-4e9c-b035-934f3b33afcb" class="">Diagrama <a href="https://es.wikipedia.org/wiki/UML">UML</a> de una <a href="https://es.wikipedia.org/wiki/Clase_(programaci%C3%B3n_orientada_a_objetos)">clase</a> que implementa el patrón singleton.</p><p id="7df287f3-2fd9-4cbb-8bc1-c93a45b95c7b" class="">En <a href="https://es.wikipedia.org/wiki/Ingenier%C3%ADa_de_software">ingeniería de </a><a href="https://es.wikipedia.org/wiki/Ingenier%C3%ADa_de_software"><em>software</em></a>, <em><strong>singleton</strong></em> o <strong>instancia única</strong> es un <a href="https://es.wikipedia.org/wiki/Patr%C3%B3n_de_dise%C3%B1o">patrón de diseño</a> que permite restringir la creación de <a href="https://es.wikipedia.org/wiki/Programaci%C3%B3n_orientada_a_objetos">objetos</a> pertenecientes a una <a href="https://es.wikipedia.org/wiki/Clase_(programaci%C3%B3n_orientada_a_objetos)">clase</a> o el valor de un tipo a un único objeto.</p><p id="4eb085b3-0356-4531-bcbd-5b4064a5b2b5" class="">Su intención consiste en garantizar que una clase solo tenga una <a href="https://es.wikipedia.org/wiki/Instancia_(inform%C3%A1tica)">instancia</a> y proporcionar un punto de acceso global a ella.</p><p id="594e03bc-c850-4bb6-a436-ea4976d11d9d" class="">El patrón <em>singleton</em> se implementa creando en nuestra clase un <a href="https://es.wikipedia.org/wiki/M%C3%A9todo_(inform%C3%A1tica)">método</a> que crea una instancia del objeto solo si todavía no existe alguna. Para asegurar que la clase no puede ser instanciada nuevamente se regula el alcance del <a href="https://es.wikipedia.org/wiki/Constructor_(inform%C3%A1tica)">constructor</a> (con <a href="https://es.wikipedia.org/w/index.php?title=Modificador_de_acceso&amp;action=edit&amp;redlink=1">modificadores de acceso</a> como protegido o privado).</p><p id="17bc67ee-ac22-4522-b211-6e68bd2360bb" class="">El patrón <em>singleton</em> se implementa creando en nuestra clase un <a href="https://es.wikipedia.org/wiki/M%C3%A9todo_(inform%C3%A1tica)">método</a> que crea una instancia del objeto solo si todavía no existe alguna. Para asegurar que la clase no puede ser instanciada nuevamente se regula el alcance del <a href="https://es.wikipedia.org/wiki/Constructor_(inform%C3%A1tica)">constructor</a> (con <a href="https://es.wikipedia.org/w/index.php?title=Modificador_de_acceso&amp;action=edit&amp;redlink=1">modificadores de acceso</a> como protegido o privado).</p><p id="b8227150-15b1-49a5-ac5b-bf443c877b82" class="">La instrumentación del patrón puede ser delicada en programas con múltiples hilos de ejecución. Si dos <a href="https://es.wikipedia.org/wiki/Hilo_(inform%C3%A1tica)">hilos de ejecución</a> intentan crear la instancia al mismo tiempo y esta no existe todavía, solo uno de ellos debe lograr crear el objeto. La solución clásica para este problema es utilizar <a href="https://es.wikipedia.org/wiki/Exclusi%C3%B3n_mutua_(inform%C3%A1tica)">exclusión mutua</a> en el método de creación de la clase que implementa el patrón.</p><p id="837cca00-0e45-4345-a12c-c5e86cbca079" class="">Las situaciones más habituales de aplicación de este patrón son aquellas en las que dicha clase controla el acceso a un recurso físico único (como puede ser el <a href="https://es.wikipedia.org/wiki/Rat%C3%B3n_(inform%C3%A1tica)">ratón</a> o un archivo abierto en modo exclusivo) o cuando cierto <a href="https://es.wikipedia.org/wiki/Tipo_de_datos">tipo de datos</a> debe estar disponible para todos los demás objetos de la <a href="https://es.wikipedia.org/wiki/Aplicaci%C3%B3n_(inform%C3%A1tica)">aplicación</a>.</p><p id="90b41020-2317-43dd-b139-1c699d46fe16" class="">El patrón <em>singleton</em> provee una única instancia global gracias a que:</p><ul id="3c07cf76-82cf-4f91-95e3-80fe66234932" class="bulleted-list"><li>La propia clase es responsable de crear la única instancia.</li></ul><ul id="ab92bf98-4d5c-4ea2-aa5b-fd97b508c94f" class="bulleted-list"><li>Permite el acceso global a dicha instancia mediante un método de clase.</li></ul><ul id="2827bfd5-7d7d-4571-935b-6e5387996321" class="bulleted-list"><li>Declara el constructor de clase como privado para que no sea instanciable directamente.</li></ul><ul id="8d5bb39b-58cb-4152-a4ad-e6e9f99a10b5" class="bulleted-list"><li>Al estar internamente autoreferenciada, en lenguajes como Java, el recolector de basura no actúa.</li></ul><h2 id="e054cef6-995e-4f9c-bcf8-006d64e5d3c6" class="">Javascript</h2><p id="96bd9c4c-d0a2-4ef5-a7fe-f2602e8562ae" class="">Una implementación del patrón singleton en <a href="https://es.wikipedia.org/wiki/Javascript">Javascript</a> es la siguiente:</p><pre id="38404bbc-c3fa-4281-80c9-a4f2f565b496" class="code code-wrap"><code>Singleton =functionSingleton$constructor() {
+return {
+        getInstance :functionSingleton$getInstance() {
+returnthis;
+        }
+    };
+}();</code></pre><p id="cd36a3fb-4045-4002-bbd2-12a5d3d7163f" class="">
+</p><h2 id="f0e30690-8490-499e-97a0-38994f076e74" class="">Singlenton con TS</h2><p id="9e24daa2-15b0-48ae-8ee0-b8a3bc286c49" class="">Uno de los patrones de diseño de creación más populares es el patrón Singleton que restringe la creación de instancias de una clase a un objeto.</p><p id="9f021aba-873b-49d4-a57d-9e32bbe686a7" class="">En esta publicación, le mostraré cómo usar el patrón junto con TypeScript.</p><hr id="b0a8a589-70db-42ba-bd75-4757a982baf4"/><h2 id="2f816cad-a79d-4fa5-a467-6d1ddf5cac5f" class="">Es genial con TS</h2><p id="290d7e2b-fa6b-4aef-82f2-a922053017cc" class="">La biblia de los patrones de diseño, a saber, el libro de Gang of Four (GoF), presenta la aplicación de patrones utilizando el lenguaje C ++, un lenguaje estáticamente tipado.</p><p id="dc4cd342-74d8-45e2-8eb3-8a2cc3f55e9c" class=""><strong>TypeScript permite implementar el patrón Singleton gracias a las siguientes características:</strong></p><ul id="5568279e-f4fa-4369-adc7-abd9ecc9dbe2" class="bulleted-list"><li><strong>soporte para modificadores de acceso (privado, protegido, público),</strong></li></ul><ul id="a2f2d9e0-a734-4ac0-af70-d46f28166d0a" class="bulleted-list"><li><strong>soporte para métodos estáticos,</strong></li></ul><ul id="4083feda-5043-4a61-8cf7-de62bddb2a0d" class="bulleted-list"><li><strong>siendo un lenguaje estáticamente escrito.</strong></li></ul><hr id="bb33b917-7cb8-49da-a7dd-2772d10505ce"/><h2 id="ce4bf025-92e9-4b8e-8e7d-99cb1ece160e" class="">Patrón Singleton</h2><p id="04d66143-b176-4258-ae49-6ed94a5138de" class="">En el siguiente ejemplo, <em>creo la</em> clase <em>ActionsBus</em> que se supone que se instancia solo una vez, ya que debería haber un único punto para enviar una acción. Además, debe ser notificado sobre cada acción en el sistema simplemente suscribiéndose en un lugar.</p><pre id="f6010637-32f4-4004-b17d-5e761943bc04" class="code code-wrap"><code>import { BehaviorSubject }from &#x27;rxjs&#x27;;
+
+interface Action {
+  type: string;
+}
+
+classActionsBus {
+  privatestatic instance: ActionsBus;
+  private actionsSubject =new BehaviorSubject&lt;Action&gt;(null);
+
+  get actions$() {
+returnthis.actionsSubject.asObservable();
+  }
+
+  privateconstructor() {
+  }
+
+static getInstance(): ActionsBus {
+if (!ActionsBus.instance) {
+      ActionsBus.instance =new ActionsBus();
+    }
+
+return ActionsBus.instance;
+  }
+
+  dispatch(action: Action) {
+this.actionsSubject.next(action);
+  }
+}
+</code></pre><p id="690f6eb0-779b-4316-a2d4-d855c66eb04d" class=""><strong>Los puntos clave son:</strong></p><ul id="696640c9-2161-4fc0-b993-ed9d6e0f89a7" class="bulleted-list"><li><em><strong>constructor</strong></em><strong> con un modificador de acceso privado, para que no sea accesible fuera del cuerpo de la clase,</strong></li></ul><ul id="41129894-224f-47e2-9c0d-6bcbf383f98c" class="bulleted-list"><li><em><strong>instancia</strong></em><strong> estática archivada que se supone que hace referencia a la instancia única de la clase,</strong></li></ul><ul id="a4cce316-0928-498b-bfef-37a7598b7762" class="bulleted-list"><li><strong>Método </strong><em><strong>getInstance</strong></em><strong> estático que se encarga de devolver la instancia de la clase. Además, sigue una estrategia de evaluación perezosa, por lo tanto, debe crear la instancia cuando se llama por primera vez.</strong></li></ul><hr id="7144cf09-3852-481c-8bfd-99d27d3d382e"/><h2 id="0506cac6-b763-4936-95f7-e93f5fa5282e" class="">Singleton en acción</h2><p id="5738d60f-a8eb-4deb-9ebf-0f461c4767c7" class="">Veamos si la clase <em>ActionsBus</em> es un singleton, es decir, si solo hay una instancia de la clase.</p><pre id="46f1fe51-f109-4704-b103-313f3672d822" class="code code-wrap"><code>//illegal since the constructor is private
+const illegalActionsBus =new ActionsBus();
+
+const firstActionsBus = ActionsBus.getInstance();
+const secondActionsBus = ActionsBus.getInstance();
+
+//both constants reference the same object
+console.log(firstActionsBus === secondActionsBus);
+
+firstActionsBus.actions$.subscribe(console.log);
+secondActionsBus.dispatch({ type: &#x27;Fetch news&#x27; })
+
+//console output
+//{type: &quot;Fetch news&quot;}
+</code></pre><p id="89233f81-5c02-4362-ab6d-d5a49199fe99" class="">Es ilegal crear la instancia de clase de forma tradicional fuera del cuerpo de la clase. <strong>Para obtener una referencia a la instancia única de </strong><em><strong>ActionsBus</strong></em><strong> , debe llamar al método estático </strong><em><strong>getInstance</strong></em><strong> .</strong> Ambas constantes ( <em>primer / segundo ActionsBus</em> ) hacen referencia al mismo objeto, por lo tanto, la comparación lógica produce <em>verdadero</em> . Por último, pero no menos importante, si se suscribe a la <em>acción $</em> stream con la ayuda de la referencia <em>firstActionsBus</em> , recibirá una acción enviada utilizando la referencia <em>secondActionsBus</em> . Definitivamente confirma que solo hay una instancia de la clase <em>ActionsBus</em> en el sistema.</p><hr id="08a0a7b8-ae36-4dc0-8a6a-f7c97a9acd92"/><h2 id="611d6bfe-085a-4347-ac01-eac6188c7dc1" class="">Conclusiones</h2><p id="d8f06442-b227-4012-b2c0-1051c9d038de" class="">Espero que les haya gustado la publicación y hayan aprendido algo nuevo. El patrón Singleton es uno de los patrones más fáciles de entender, por lo tanto, es un buen punto de partida para familiarizarse con los patrones. Recuerdo que cuando me uní al mundo de JavaScript, estaba un poco molesto porque, debido a la falta de tipeo, el conocimiento sobre los patrones de diseño no sería tan útil como en Java o C ++. Afortunadamente, TypeScript al rescate!</p></div></article></body></html>
